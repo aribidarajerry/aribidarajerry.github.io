@@ -1,0 +1,83 @@
+
+@media screen and (min-width: 480px) {
+    .nav-bar {
+	height: 5em;
+    }
+    nav {
+        padding-top: 6em;
+    }
+    nav img {
+	height: 8em;
+        width: 8em;
+    }
+    ul li {
+        font-size: 1.2em;
+	padding: 1.3em;
+    }
+    button {
+	width: 75%;
+	padding: 1.3em;
+        font-size: 1.2em;
+    }
+    .contact {
+        padding: 2em;
+    }
+    .contact i {
+        font-size: 2.5em;
+        padding: 0 0.2em;
+    }
+    .greet img {
+	margin: 200px 0 0 0;
+        padding: 15px;
+        border: 10px solid #00032E;
+        width: 300px;
+        height: 300px;
+    }
+    .greet h2 {
+	margin: 100px 0;
+        font-size: 1.8em;
+        width: 400px;
+    }
+    .line {
+        width: 3.5em;
+    }
+    #message {
+	padding: 2em;
+    }
+    article {
+        padding: 2em 0 4em 0;
+    }
+    h2 {
+	font-size: 2.3em;
+    }
+    .content {
+        font-size: 1.5em;
+        padding: 2em;
+    }
+    h3 {
+	margin: 1.5em 0 0.5em 1.5em;
+	font-size: 2em;
+    }
+    .works {
+	padding: 1.5em;
+    }
+    footer {
+	font-size: 1em;
+    }
+    form {
+        width: 400px;
+	border-radius: 15px;
+	padding: 2em 0;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .content {
+        padding: 2em 3.5em;
+    }
+    h3 {
+        margin: 2em 0 1em 2.5em;
+        padding: 1em 1.5em;
+    }    
+}
+
