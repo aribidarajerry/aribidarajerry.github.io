@@ -54,7 +54,7 @@ $(document).ready(function() {
             $(this).css("visibility", "hidden");
             $(".imgs").attr("src", "img/jerry18.png");
             i++;
-        }/*$(".imgs").css("transform","rotate(360deg)");*/
+        }
     });
     $(".fa-arrow-left").click(function() {
 	if (i == 17) {
@@ -151,10 +151,7 @@ $(document).ready(function() {
         $("nav").width("0");
         $("nav ul, nav div, button").css("display", "none");
         $(".form").fadeOut("slow");
-    }); /*
-    $(".greet").click(function() {
-        $("#message, #message i").css({"opacity":"1", "visibility":"visible"});
-    });*/
+    });
     $("#message").click(function() {
         $("#message, #message i").css({
             "opacity": "0", "visibility": "hidden"

@@ -12,20 +12,6 @@ html {
     background-color: white;
     border-bottom: 2px solid #00032E;
 }
-
-/* PHP */
-
-#php {
-    color: green;
-    font-size: 3em;
-    text-align: center;
-    background-color: yellow;
-    padding: 1em;
-    margin: 2em;
-}
-
-/* PHP */
-
 .fa-arrow-left {
     visibility: hidden;
 }
@@ -141,36 +127,10 @@ section {
     padding: 10px;
     border-radius: 50%;
     border: 10px solid #00032E;
-    width: 250px;/*  change back to 250px*/
+    width: 250px;
     height: 250px;
     transition: 1s ease;
 }
-
-/*
-@keyframes change-image {
-    0% {
-	background: url("img/jerry1.png");
-    }
-    20% {
-        background: url("img/jerry2.png");
-    }
-    40% {
-        background: url("img/jerry3.png");
-    }
-    50% {
-        background: url("img/jerry4.png");
-    }
-    70% {
-        background: url("img/jerry5.png");
-    }
-    80% {
-        background: url("img/jerry6.png");
-    }
-    100% {
-        background: url("img/jerry7.png");
-    }
-}*/
-
 .greet h2 {
     margin: 70px 0;
     font-size: 1.4em;
