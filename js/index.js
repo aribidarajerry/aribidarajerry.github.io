@@ -127,8 +127,8 @@ $(document).ready(function() {
         $("nav").width("0");
         $("nav ul, nav div, button").css("display", "none");
         $("#works").delay("slow").slideUp();
-//        var works = $("#works").offset();
-//        window.scrollTo(0, works.top);
+        var works = $("#works").offset();
+        window.scrollTo(0, works.top);
         document.title = "Aribidara Jerry - Works"
     });
     $("li:nth-child(3)").click(function() {
