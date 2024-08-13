@@ -126,7 +126,6 @@ $(document).ready(function() {
         $(".fa-bars").show();
         $("nav").width("0");
         $("nav ul, nav div, button").css("display", "none");
-        $("#works").delay("slow").slideUp();
         var works = $("#works").offset();
         window.scrollTo(0, works.top);
         document.title = "Aribidara Jerry - Works"
