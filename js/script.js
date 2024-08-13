@@ -25,6 +25,12 @@ function fullName() {
     }
 };
 
+function rotate() {
+    let img = document.getElementsByClassName("imgs");
+    img.setAttribute("style");
+    img.padding = "40em";
+};
+
 //display JavaScript code
 function code(language, scriptMessage = undefined) {
     var htmlMessage = document.getElementById("message");

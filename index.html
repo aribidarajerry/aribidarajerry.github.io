@@ -24,21 +24,19 @@
         </div>
     </div>
     <nav>
-        <img src="img/jerry.png" alt="Aribidara Jerry" />
         <ul>
             <li>
                 About
             </li>
             <li>
-                My Works
+                Works
             </li>
             <li>
                 Contact
             </li>
         </ul>
 
-        <button id="login">Login</button>
-        <button id="signup">Signup</button>
+        <button id="subscribe">Subscribe</button>
 
         <div class="contact">
             <a href="https://wa.me/+2348123998572">
@@ -58,7 +56,11 @@
     <div id="message"></div>
     <section>
         <div class="greet">
-            <img src="img/jerry1.png" alt="">
+            <div>
+                <i class="fa-solid fa-arrow-left"></i>
+                <img src="img/jerry1.png" alt="profile picture" class="imgs">
+                <i class="fa-solid fa-arrow-right" onclick="rotate()"></i>
+            </div>
             <h2>Welcome to my site!</h2>
         </div>
         <article class="article-1">
@@ -72,7 +74,7 @@
             </div>
         </article>
         <article class="article-2">
-            <h2 id="works" class="topic">My Works</h2>
+            <h2 id="works" class="topic">Works</h2>
             <div class="line"></div>
             <h3 id="video">Videos</h3>
             <p class="content">
@@ -99,7 +101,9 @@
                 </a>
                 <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1383564/Product.aspx" target="_blank">
                     <div class="w">
-                        <img src="img/audio.png" alt="Score image" class="work">
+                        <img src="img/audio.png" 
+                        alt="Score image" 
+                        class="work">
                     </div>
                 </a>
                 <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521415/Product.aspx" target="_blank">
@@ -153,34 +157,24 @@
                     <i class="fa-solid fa-envelope fa-1x"></i>
                 </a>
             </div>
-        </p>
-    </article>
-</section>
-<section>
-    <div class="form">
-        <form id="signup-form" action="#" method="post" accept-charset="utf-8">
-            <h2>Signup</h2>
-            <input type="text" name="fname" id="fname" placeholder="Firstname" required /> <br />
-            <input type="text" name="lname" id="lname" placeholder="Lastname" required /> <br />
-            <input type="email" name="email" id="email" placeholder="Email" required /> <br />
-            <input type="password" name="password" id="password" placeholder="Password" required /> <br />
-            <input type="submit" name="submit" id="submit" value="Signup" />
+        </article>
+    </section>
+    <section class="form">
+        <form>
+            <p>
+                Subscribe to get updates on recent posts.
+            </p>
+            <input type="email" placeholder="Enter your Email">
+            <input type="submit" value="Subscribe" />
         </form>
-        <form id="login-form" action="#" method="post" accept-charset="utf-8">
-            <h2>Login</h2>
-            <input type="email" name="email" id="email" placeholder="Email" required /> <br />
-            <input type="password" name="password" id="password" placeholder="Password" required /> <br />
-            <input type="submit" name="submit" id="submit" value="Login" />
-        </form>
-    </div>
-</section>
-<footer>
-    Copyright &copy;
-    <script>
-        let date = new Date();
-        display(date.getFullYear());
-    </script>
-    A.T.M.F. JERRY
-</footer>
+    </section>
+    <footer>
+        Copyright &copy;
+        <script>
+            let date = new Date();
+            display(date.getFullYear());
+        </script>
+        A.T.M.F. JERRY
+    </footer>
 </body>
 </html>
