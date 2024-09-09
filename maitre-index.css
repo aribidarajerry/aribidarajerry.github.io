@@ -88,14 +88,16 @@ button#subscribe:hover {
 }
 .contact {
     padding: 1em;
+    justify-content: center;
+}
+nav .contact {
     display: flex;
     flex-wrap: no-wrap;
-    justify-content: center;
 }
 .contact i {
     font-size: 2em;
     padding: 0 0.2em;
-    color: white;
+    color: #C2C2C2;
     transition: 1s ease-in-out;
 }
 .contact i:hover {
@@ -196,13 +198,13 @@ section {
 }
 #message i {
     opacity: 0;
-    color: white;
+    color: #C2C2C2;
     transition: 7s ease-in-out;
 }
 article {
     padding: 1em 0 3em 0;
 }
-.article-1, .article-3 {
+.article-1 {
     color: white;
     background-color: #000324;
 }
@@ -220,10 +222,6 @@ h2 {
 }
 .article-1 h2, .article-3 h2 {
     color: white;
-}
-.note {
-    display: flex;
-    flex-direction: column;
 }
 .content {
     font-size: 1.2em;
@@ -269,6 +267,30 @@ h3 {
     font-size: 1em;
     text-align: center;
 }
+.article-3 {
+    color: white;
+    background-color: #00032E;
+}
+.article-3 .contact {
+    margin: 0 2rem;
+    background-color: #000320;
+    display: flex;
+    flex-direction: column;
+}
+.article-3 a {
+    position: relative;
+    padding: 1rem;
+}
+b {
+    color: #C2C2C2;
+    position: absolute;
+    top: 35%;
+    left: 4.7rem;
+    font-size: 1.2rem;
+}
+b:hover {
+    color: white;
+}
 .fa-whatsapp:hover {
     color: #07B100;
 }
@@ -283,6 +305,9 @@ h3 {
 }
 .fa-youtube:hover {
     color: red;
+}
+.fa-github:hover {
+    color: white;
 }
 footer {
     font-size: 0.7em;
@@ -341,4 +366,14 @@ input[type="submit"]:hover {
     box-shadow: 0 0 10px white;
     color: white;
     background-color: #000324;
+}
+.gallery {
+    margin: 3rem 1rem 2rem 1rem;
+    white-space: nowrap;
+    overflow-x: scroll;
+    padding: 1rem;
+}
+.gallery img {
+    border-radius: 20px;
+    border: 7px solid #000324;
 }

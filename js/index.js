@@ -31,7 +31,6 @@ $(document).ready(function() {
             active.removeClass('active');
             prevItem.addClass('active');
         });
-        
 
     $("li:nth-child(1)").click(function() {
         $(".close").hide();
@@ -67,6 +66,18 @@ $(document).ready(function() {
         window.scrollTo(0,
             contact.top);
         document.title = "Aribidara Jerry - Contact";
+    });
+
+    $("li:nth-child(4)").click(function() {
+        $(".close").hide();
+        $(".fa-bars").show();
+        $("nav").width("0");
+        $("nav ul, nav div, button").css("display",
+            "none");
+        var contact = $("#gallery").offset();
+        window.scrollTo(0,
+            contact.top);
+        document.title = "Aribidara Jerry - Image gallery";
     });
 
     $(".fa-bars").click(function() {
