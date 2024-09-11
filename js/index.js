@@ -115,6 +115,6 @@ $(document).ready(function() {
             "flex");
     });
     $("li:last").click(function() {
-        window.open("eclectic.html");
+        window.open("https://eclecticsite.vercel.app");
     })
 });
