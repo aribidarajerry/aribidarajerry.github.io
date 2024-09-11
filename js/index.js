@@ -114,18 +114,7 @@ $(document).ready(function() {
         $(".form").css("display",
             "flex");
     });
-
-    $("input[type=submit]").click(function() {
-        let input = $("input[type=email]").val();
-        /*        let nam = "Jerry";
-        alert(nam.includes("e"));*/
-        if (input.includes("<") || input.includes(">") || input.includes("$") || input.includes("%") || input == "") {
-            alert("Invalid input");
-        } else if (input.includes("@") == false) {
-            alert("Invalid mail");
-        } else if (input.length < 15) {
-            alert("Invalid mail");
-        }
-        //	alert(input.length + " = " + input);
-    });
+    $("li:last").click(function() {
+        window.open("eclectic.html");
+    })
 });
