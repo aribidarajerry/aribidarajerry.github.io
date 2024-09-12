@@ -32,58 +32,10 @@ $(document).ready(function() {
             prevItem.addClass('active');
         });
 
-    $("li:nth-child(1)").click(function() {
-        $(".close").hide();
-        $(".fa-bars").show();
-        $("nav").width("0");
-        $("nav ul, nav div, button").css("display",
-            "none");
-        var about = $("#about").offset();
-        window.scrollTo(0,
-            about.top);
-        document.title = "Aribidara Jerry - About";
-    });
-
-    $("li:nth-child(2)").click(function() {
-        $(".close").hide();
-        $(".fa-bars").show();
-        $("nav").width("0");
-        $("nav ul, nav div, button").css("display",
-            "none");
-        var works = $("#works").offset();
-        window.scrollTo(0,
-            works.top);
-        document.title = "Aribidara Jerry - Works";
-    });
-
-    $("li:nth-child(3)").click(function() {
-        $(".close").hide();
-        $(".fa-bars").show();
-        $("nav").width("0");
-        $("nav ul, nav div, button").css("display",
-            "none");
-        var contact = $("#contact").offset();
-        window.scrollTo(0,
-            contact.top);
-        document.title = "Aribidara Jerry - Contact";
-    });
-
-    $("li:nth-child(4)").click(function() {
-        $(".close").hide();
-        $(".fa-bars").show();
-        $("nav").width("0");
-        $("nav ul, nav div, button").css("display",
-            "none");
-        var contact = $("#gallery").offset();
-        window.scrollTo(0,
-            contact.top);
-        document.title = "Aribidara Jerry - Image gallery";
-    });
-
     $(".fa-bars").click(function() {
         $(this).hide();
         $(".close").show();
-        $("nav").width("360px");
+        $("nav").width("80%");
         $("nav ul, nav div, button").fadeIn("1000");
     });
 
@@ -93,7 +45,7 @@ $(document).ready(function() {
         $("nav").width("0");
         $("nav ul, nav div, button").css("display",
             "none");
-        $(".form").fadeOut("slow");
+        $(".form").slideUp("slow");
     });
 
     $("#message").click(function() {
@@ -108,9 +60,6 @@ $(document).ready(function() {
         $("nav ul, nav div, button").css("display",
             "none");
         $(".form").slideDown("slow");
-        var form = $(".form").offset();
-        window.scrollTo(0,
-            form.top);
         $(".form").css("display",
             "flex");
     });
