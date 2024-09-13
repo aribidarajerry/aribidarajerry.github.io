@@ -31,11 +31,17 @@ $(document).ready(function() {
             active.removeClass('active');
             prevItem.addClass('active');
         });
-
+        /*
+        let width = "0px";
+        if ($("body").width() > 600) {
+            width = "400px";
+        } else {
+            width = "300px";
+        }*/
     $(".fa-bars").click(function() {
         $(this).hide();
         $(".close").show();
-        $("nav").width("80%");
+        $("nav").css("width", "80%");
         $("nav ul, nav div, button").fadeIn("1000");
     });
 
@@ -65,5 +71,8 @@ $(document).ready(function() {
     });
     $("li:last").click(function() {
         window.open("https://eclecticsite.vercel.app");
+    })
+    $("nav").click(function() {
+        alert($(this).width())
     })
 });

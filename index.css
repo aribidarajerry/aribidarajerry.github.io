@@ -37,6 +37,7 @@ nav {
     top: 0;
     right: 0;
     width: 0;
+    max-width: 400px;
     height: 100%;
     z-index: 4;
     background-color: #00032E;
