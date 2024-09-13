@@ -31,13 +31,6 @@ $(document).ready(function() {
             active.removeClass('active');
             prevItem.addClass('active');
         });
-        /*
-        let width = "0px";
-        if ($("body").width() > 600) {
-            width = "400px";
-        } else {
-            width = "300px";
-        }*/
     $(".fa-bars").click(function() {
         $(this).hide();
         $(".close").show();
@@ -71,8 +64,5 @@ $(document).ready(function() {
     });
     $("li:last").click(function() {
         window.open("https://eclecticsite.vercel.app");
-    })
-    $("nav").click(function() {
-        alert($(this).width())
     })
 });
