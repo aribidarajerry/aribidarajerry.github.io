@@ -64,5 +64,7 @@ $(document).ready(function() {
     });
     $("li:last").click(function() {
         window.open("https://eclecticsite.vercel.app");
-    })
+    });
+    let date = new Date();
+    $("footer p").text(date.getFullYear());
 });

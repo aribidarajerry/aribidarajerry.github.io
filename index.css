@@ -111,7 +111,7 @@ nav .contact {
     transition: 1s ease-in-out;
 }
 .contact i:hover {
-    transform: scale(1.4);
+    transform: scale(1.3);
 }
 section {
     padding-top: 0;
@@ -322,10 +322,13 @@ b:hover {
 footer {
     font-size: 0.7em;
     text-align: center;
-    background-color: #00032E;
+    background-color: #000320;
     color: #81B3FF;
     padding: 2em 0;
     margin: 0;
+}
+footer p {
+    display: inline-block;
 }
 .form {
     padding-top: 10em;
