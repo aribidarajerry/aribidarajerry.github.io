@@ -37,7 +37,6 @@ $(document).ready(function() {
         $("nav").css("width", "80%");
         $("nav ul, nav div, button").fadeIn("1000");
     });
-
     $(".close").click(function() {
         $(this).hide();
         $(".fa-bars").show();
@@ -46,7 +45,6 @@ $(document).ready(function() {
             "none");
         $(".form").slideUp("slow");
     });
-
     $("#message").click(function() {
         $("#message, #message i").css({
             "opacity": "0",
