@@ -1,5 +1,14 @@
 //You can write a function containing either jQuery code or normal JavaScript code or syntax. The "function" can be called in the html document
 
+/*Another cool things is that after linking js in html, you can alert variables in js and will be displayed in html 
+e.g var test = 0 (in first.js), 
+(second.js) - alert(test) 
+and it will be displayed in html document
+*/
+/*
+export and import keywords don't work in html because both files have already been linked
+*/
+
 //show full name on click
 var num = 0;
 function fullName() {
@@ -24,7 +33,6 @@ function fullName() {
         num = 0;
     }
 };
-
 function rotate() {
     let img = document.getElementsByClassName("imgs");
     img.setAttribute("style");
