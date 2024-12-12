@@ -8,7 +8,6 @@
 }
 .nav-bar {
     background-color: white;
-    border-bottom: 2px solid #00032E;
 }
 h1#logo {
     color: #00032E;
@@ -41,7 +40,6 @@ nav {
     height: 100%;
     z-index: 4;
     background-color: #00032E;
-    text-align: center;
     transition: .5s ease-in-out;
 }
 nav ul, button, nav div {
@@ -80,17 +78,17 @@ ul h4 {
 }
 button {
     display: block;
-    width: 80%;
     margin: 1em auto;
     padding: 1em;
     font-size: 1.2em;
 }
 button#subscribe {
+    width: 80%;
     border-radius: 5px;
     border: 2px solid white;
     color: white;
     background-color: transparent;
-}
+}           
 button#subscribe:hover {
     box-shadow: 0 0 25px white;
     color: #000324;
@@ -108,7 +106,7 @@ nav .contact {
     font-size: 2em;
     padding: 0 0.2em;
     color: #C2C2C2;
-    transition: 1s ease-in-out;
+    transition: .3s ease-in-out;
 }
 .contact i:hover {
     transform: scale(1.3);
@@ -116,100 +114,71 @@ nav .contact {
 section {
     padding-top: 0;
 }
-.greet {
-    padding-top: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.images {
+    margin: 2em auto;
     width: 100%;
-    min-height: 600px;
-}
-.fa-arrow-right, .fa-arrow-left {
-    border-radius: 50%;
-    padding: .5em;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-.carousel {
+    max-width: 600px;
+    max-height: 700px;
     text-align: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    width: 360px;
+    overflow-y: scroll;
 }
-.carousel-inner {
-    display: flex;
+.images img {
+    width: 100px;
+    height: 100px;
+    padding: 8px;
+}
+.img-display {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
     justify-content: center;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-.carousel-item {
-    width: 100%;
-    height: 100%;
+    background-color: aliceblue;
     display: none;
 }
-.carousel-item.active {
-    display: block;
-}
-.greet img {
-    margin: 50px 0;
-    padding: 10px;
-    border-radius: 50%;
-    border: 10px solid #00032E;
-    width: 250px;
-    height: 250px;
-}
-.greet h2 {
-    padding: 1em;
+.display {
     width: 300px;
-    border-radius: 2em;
-    font-size: 1.4em;
-    line-height: 2em;
-    color: #00032E;
-    box-shadow: 0 0 5px #00032E;
+    height: 300px;
+}
+.cv {
+    padding: 2em 0;
+    text-align: center;
+}
+.cv button {
+    margin: 1em;
+    display: inline-block;
+    width: 300px;
+    border-radius: 5px;
     transition: .5s ease-in-out;
 }
-.greet h2:hover {
-    box-shadow: 0 0 10px #00032E;
+.cv button:hover {
     transform: scale(1.1);
+}
+#cv {
+    background-color: white;
+    color: #00032E;
+    border: 2px solid #00032E;
+}
+#cv:hover {
+    background-color: #000320;
+    color: white;
+}
+#projects {
+    background-color: #00032E;
+    color: white;
+    border: 2px solid #00032E;
+}
+#projects:hover {
+    background-color: #000320;
+    border: 2px solid #000320;
 }
 .line {
     width: 3em;
     height: 2px;
     margin: 0.5em auto;
     background-color: yellow;
-}
-#message {
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    margin: 30% 10%;
-    padding: 1em;
-    color: yellow;
-    background-color: #00032E;
-    border: 2px solid white;
-    border-radius: 10px;
-    max-width: 300px;
-    max-height: 500px;
-    overflow: scroll;
-    opacity: 0;
-    visibility: hidden;
-    transition: 1s ease-in-out;
-}
-#message h1 {
-    color: white;
-    font-size: 1.5em;
-}
-#message i {
-    opacity: 0;
-    color: #C2C2C2;
-    transition: 7s ease-in-out;
 }
 article {
     padding: 1em 0 3em 0;
@@ -281,42 +250,63 @@ h3 {
     color: white;
     background-color: #00032E;
 }
+.contact div {
+    padding: 1em;
+}
 .article-3 .contact {
     margin: 0 2rem;
     background-color: #000320;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+}
+.contact div:hover {
+    background-color: #00032E;
+}
+.contact div:hover b {
+    color: white;
 }
 .article-3 a {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1.2rem;
+    text-decoration: none;
 }
 b {
     color: #C2C2C2;
-    position: absolute;
-    top: 35%;
-    left: 4.7rem;
     font-size: 1.2rem;
-}
-b:hover {
-    color: white;
 }
 .fa-whatsapp:hover {
     color: #07B100;
 }
-.fa-facebook:hover {
+#whatsapp:hover .fa-whatsapp {
+    color: #07B100;
+}
+.fa-facebook:hover #facebook {
+    color: white;
+}
+#facebook:hover .fa-facebook {
     color: #002997;
 }
 .fa-telegram:hover {
     color: #0074BE;
 }
+#telegram:hover .fa-telegram {
+    color: #0074BE;
+}
 .fa-envelope:hover {
+    color: #690001;
+}
+#mail:hover .fa-envelope {
     color: #690001;
 }
 .fa-youtube:hover {
     color: red;
 }
 .fa-github:hover {
+    color: white;
+}
+#github:hover .fa-github {
     color: white;
 }
 footer {
