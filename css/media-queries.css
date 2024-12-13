@@ -22,8 +22,7 @@
         padding: 2em;
     }
     .contact i {
-        font-size: 2.3em;
-        padding: 0 0.2em;
+        font-size: 2.1em;
     }
     .carousel {
         width: 400px;
@@ -81,6 +80,9 @@
 }
 
 @media screen and (min-width: 768px) {
+    .contact i {
+        font-size: 2.3em;
+    }
     .carousel {
         width: 500px;
     }
