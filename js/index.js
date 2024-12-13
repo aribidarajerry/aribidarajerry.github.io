@@ -1,21 +1,19 @@
 $(document).ready(function() {
 	"use strict";
-	$(".images img").hover(function() {
+	let display = $(".display")[0];
+	$(".images img").mouseover(function() {
 		$('.img-display').css('display','flex');
 		let images = $(this);
-		let display = $(".display")[0];
 		for (let image of images) {
 			if (image) {
 				display.src = image.src;
 			}
 		}
-	}, function() {
-		let display = $(".display")[0];
+	});
+	$(".images img").mouseleave(function() {
 		display.src = '';
 		$('.img-display').css('display','none');
 	});
-
-	
 	$(".fa-bars").click(function() {
 		$(this).hide();
 		$(".close").show();
