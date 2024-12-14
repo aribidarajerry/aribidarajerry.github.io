@@ -284,8 +284,8 @@ b {
 #whatsapp:hover .fa-whatsapp {
     color: #07B100;
 }
-.fa-facebook:hover #facebook {
-    color: white;
+.fa-facebook:hover {
+    color: #002997;
 }
 #facebook:hover .fa-facebook {
     color: #002997;
