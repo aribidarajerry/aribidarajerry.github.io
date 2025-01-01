@@ -36,6 +36,9 @@ $(document).ready(function() {
 		$(".form").css("display",
 			"flex");
 	});
+	$("#projects").click(function() {
+	        window.location.href = "https://eclecticsite.vercel.app";
+	});
 	let date = new Date();
 	$("footer p").text(date.getFullYear());
 });
