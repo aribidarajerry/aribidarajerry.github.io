@@ -6,28 +6,45 @@
     font-family: Monospace;
     scroll-behavior: smooth;
 }
+*::-webkit-scrollbar {
+    display: none;
+}
+:root {
+    --primary-text: #FFFFFF;
+    --light-shade: #F9EDCC;
+    --light-shade-two: #F9DF74;
+    --hero-section: #001848;
+    --medium-shade: #001F54;
+    --darkest-shade: #00032E;
+    --icons-light: #42A5F5;
+    --fa-whatsapp: #25D366;
+    --fa-facebook: #1877F2;
+    --fa-github: #181717;
+    --fa-telegram: #0088CC;
+    --fa-mail: #D93025;
+}
 .nav-bar {
-    background-color: white;
+    background-color: var(--darkest-shade);
     border-bottom: 2px solid #00032E;
 }
 h1#logo {
-    color: #00032E;
+    color: var(--light-shade-two);
     font-size: 1.2em;
     padding: 1.3em 2em;
-}
-.fa-bars {
-    color: #00032E;
 }
 .close {
     display: none;
 }
+.fa-bars {
+    color: var(--icons-light);
+}
 .fa-bars, .fa-close {
+    color: var(--icons-light);
     font-size: 1em;
     position: fixed;
     z-index: 5;
     right: 0;
     top: 0;
-    background-color: white;
     padding: 1.2em;
 }
 nav {
@@ -40,7 +57,7 @@ nav {
     max-width: 400px;
     height: 100%;
     z-index: 4;
-    background-color: #00032E;
+    background-color: var(--darkest-shade);
     transition: .5s ease-in-out;
 }
 nav ul, button, nav div {
@@ -49,12 +66,12 @@ nav ul, button, nav div {
 ul {
     display: flex;
     flex-direction: column;
-    margin: 5em 0;
+    padding: 3em 0;
     background-color: none;
 }
 ul a {
     text-decoration: none;
-    transition: 1s ease;
+    transition: 1s ease-in-out;
 }
 ul a:hover {
     font-weight: 100;
@@ -65,15 +82,11 @@ ul li {
     list-style: none;
     font-size: 1.2em;
     padding: 1.3em;
-    color: white;
-}
-ul li:focus {
-    color: #000324;
-    background-color: white;
+    color: var(--primary-text);
 }
 ul li:hover {
-    color: #000324;
-    background-color: white;
+    color: #FFD700;
+    background-color: var(--medium-shade);
 }
 ul h4 {
     display: inline-block;
@@ -87,14 +100,15 @@ button {
 button#subscribe {
     width: 80%;
     border-radius: 5px;
-    border: 2px solid white;
     color: white;
-    background-color: transparent;
+    border: none;
+    background-color: var(--hero-section);
+    transition: .5s ease-in-out;
 }           
 button#subscribe:hover {
-    box-shadow: 0 0 25px white;
-    color: #000324;
-    background-color: white;
+    box-shadow: 0 0 10px white;
+    color: #FFD700;
+    background-color: var(--medium-shade);
 }
 .contact {
     padding: 1em;
@@ -107,42 +121,97 @@ nav .contact {
 .contact i {
     font-size: 1.7em;
     padding: 0 0.2em;
-    color: #C2C2C2;
+    color: var(--icons-light);
     transition: .3s ease-in-out;
 }
 .contact i:hover {
     transform: scale(1.3);
 }
 section {
-    padding-top: 0;
-}
-.images {
-    margin: 2em auto;
-    width: 100%;
-    max-width: 600px;
-    max-height: 700px;
-    text-align: center;
-    overflow-y: scroll;
-}
-.images img {
-    width: 100px;
-    height: 100px;
-    padding: 8px;
+    padding-top: 2em;
+    background-color: var(--hero-section);
 }
 .img-display {
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     z-index: 1;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: rgb(0, 31, 84, 50%);
     display: none;
 }
 .display {
     width: 300px;
-    height: 300px;
+    height: 400px;
+}
+@keyframes change-image {
+    0% {
+        background-image: url(img/jerry1.jpg);
+    }
+    4% {
+        background-image: url(img/jerry1.jpg);
+    }
+    8% {
+        background-image: url(img/jerry2.jpg);
+    }
+    16% {
+        background-image: url(img/jerry3.jpg);
+    }
+    24% {
+        background-image: url(img/jerry4.jpg);
+    }
+    32% {
+        background-image: url(img/jerry5.jpg);
+    }
+    40% {
+        background-image: url(img/jerry6.jpg);
+    }
+    48% {
+        background-image: url(img/jerry7.jpg);
+    }
+    56% {
+        background-image: url(img/jerry8.jpg);
+    }
+    64% {
+        background-image: url(img/jerry9.jpg);
+    }
+    72% {
+        background-image: url(img/jerry10.jpg);
+    }
+    80% {
+        background-image: url(img/jerry11.jpg);
+    }
+    88% {
+        background-image: url(img/jerry12.jpg);
+    }
+    96% {
+        background-image: url(img/jerry13.jpg);
+    }
+    100% {
+        background-image: url(img/jerry1.jpg);
+    }
+}
+.images {
+    border: 10px solid var(--medium-shade);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    height: 400px;  
+    overflow: scroll;
+    margin: 0 auto;
+    text-align: center;
+    animation: change-image 30s infinite;
+    background-image: url(img/jerry1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: 1s ease-in-out;
+}
+.images img {
+    width: 100px;
+    height: 100px;
+    padding: 8px;
 }
 .cv {
     padding: 2em 0;
@@ -159,35 +228,27 @@ section {
     transform: scale(1.1);
 }
 #cv {
-    background-color: white;
-    color: #00032E;
-    border: 2px solid #00032E;
-}
-#cv:hover {
-    background-color: #000320;
-    color: white;
+    background-color: var(--light-shade-two);
+    color: var(--medium-shade);
+    border: 2px solid var(--medium-shade);
 }
 #projects {
-    background-color: #00032E;
-    color: white;
-    border: 2px solid #00032E;
-}
-#projects:hover {
-    background-color: #000320;
-    border: 2px solid #000320;
+    background-color: var(--medium-shade);
+    color: var(--light-shade);
+    border: none;
 }
 .line {
     width: 3em;
     height: 2px;
     margin: 0.5em auto;
-    background-color: yellow;
+    background-color: var(--medium-shade);
 }
 article {
     padding: 1em 0 3em 0;
 }
 .article-1 {
-    color: white;
-    background-color: #000324;
+    color: #333333;
+    background-color: #FFFFFF;
 }
 a {
     text-decoration: underline;
@@ -201,8 +262,8 @@ h2 {
     padding: 1.3em 0 0.5em 0;
     text-align: center;
 }
-.article-1 h2, .article-3 h2 {
-    color: white;
+.article-1 h2, .article-2 h2 {
+    color: var(--darkest-shade);
 }
 .content {
     font-size: 1.2em;
@@ -210,53 +271,38 @@ h2 {
     line-height: 2em;
 }
 .article-1 a {
-    color: white;
+    color: var(--medium-shade);
 }
 .article-2 {
-    color: #00032E;
-    background-color: white;
+    color: #3f3f3f;
+    background-color: #F4F4F4;
 }
 .article-2 a {
-    color: #00032E;
+    color: var(--medium-shade);
+    transition: .5s ease-in-out;
 }
-.article-2 a::before {
-    content: "";
-    background-color: red;
-    position: absolute;
-    top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-    width: 100%;
-}
-/* .article-2 a:hover a::before {
-    
-} */
-.article-2 .line {
-    background-color: #00032E;
-}
-.article-2 h2 {
-    color: #00032E;
+.article-3 h2 {
+    color: #FFD700;
 }
 .article-2 img {
     width: 250px;
     height: 200px;
     margin: 1em;
-    border: 2px solid #00032E;
+    border: 4px solid var(--darkest-shade);
 }
 iframe {
     margin: 1em;
     width: 100%;
-    height: 250px;
+    height: 300px;
     max-width: 500px;
-    border: 2px solid #00032E;
-
+    border: 2px solid var(--darkest-shade);
 }
 h3 {
-    color: #000324;
+    color: var(--medium-shade);
     margin: 1.5em 0 0.5em 1.2em;
     padding: 0.5em 1em;
     font-size: 1.5em;
-    border-left: 4px solid #00032E;
+    border-left: 4px solid var(--medium-shade);
 }
 .works {
     display: flex;
@@ -264,11 +310,52 @@ h3 {
     justify-content: center;
     padding: 1em;
     margin: 2em;
+}
+.works > div {
     position: relative;
 }
+.works .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    padding: 2rem;
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    transition: .5s ease-in-out;
+}
+.works .links:hover {
+    background-color: rgb(0, 31, 84, 80%);
+}
+.links a {
+    text-decoration: none;
+}
+.works i {
+    font-size: 3rem;
+    margin: 0.7rem;
+    transition: .3s ease-in-out;
+}
+.works .fa-youtube {
+    color: var(--icons-light);
+    font-size: 4rem;
+}
+.works .fa-youtube:hover {
+    color: #FF0000;
+}
+.works .fa-external-link {
+    color: #757575;
+}
+.works .fa-external-link:hover {
+    color: #64B5F6;
+}
+.works i:hover {
+    transform: scale(1.2);
+}
 .article-3 {
-    color: white;
-    background-color: #00032E;
+    color: #FFFFFF;
+    background-color: #001848;
 }
 .contact div {
     padding: 1em;
@@ -297,31 +384,31 @@ b {
     font-size: 1.2rem;
 }
 .fa-whatsapp:hover {
-    color: #07B100;
+    color: var(--fa-whatsapp);
 }
 #whatsapp:hover .fa-whatsapp {
     color: #07B100;
 }
 .fa-facebook:hover {
-    color: #002997;
+    color: var(--fa-facebook);
 }
 #facebook:hover .fa-facebook {
     color: #002997;
 }
 .fa-telegram:hover {
-    color: #0074BE;
+    color: var(--fa-telegram);
 }
 #telegram:hover .fa-telegram {
     color: #0074BE;
 }
 .fa-envelope:hover {
-    color: #690001;
+    color: var(--fa-mail);
 }
 #mail:hover .fa-envelope {
-    color: #690001;
+    color: var(--fa-mail);
 }
 .fa-youtube:hover {
-    color: red;
+    color: #FF0000;
 }
 .fa-github:hover {
     color: white;
@@ -332,8 +419,8 @@ b {
 footer {
     font-size: 0.7em;
     text-align: center;
-    background-color: #000320;
-    color: #81B3FF;
+    background-color: var(--darkest-shade);
+    color: var(--light-shade);
     padding: 2em 0;
     margin: 0;
 }
@@ -365,7 +452,7 @@ form {
     border-radius: 10px;
     padding: 1em 1.5em 3em 1.5em;
     color: white;
-    background-color: #00032E;
+    background-color: var(--darkest-shade);
 }
 form p {
     font-size: 1.2em;
@@ -383,24 +470,19 @@ input {
 }
 input[type="submit"] {
     color: white;
-    background-color: #000324;
+    background-color: var(--hero-section);
+    transition: .5s ease-in-out;
 }
 input[type="submit"]:hover {
     box-shadow: 0 0 10px white;
-    color: white;
-    background-color: #000324;
+    color: #FFD700;
+    background-color: var(--medium-shade);
 }
 .gallery {
     margin: 3rem 1rem 2rem 1rem;
     white-space: nowrap;
     overflow-x: scroll;
     padding: 1rem;
-}
-.gallery::-webkit-scrollbar {
-    width: 15px;
-}
-.gallery::-webkit-scrollbar-thumb {
-    background-color: #000324;
 }
 .gallery img {
     border-radius: 20px;
