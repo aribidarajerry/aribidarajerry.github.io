@@ -15,14 +15,14 @@ $(document).ready(function() {
 	// 	$('.img-display').css('display','none');
 	// });
 	$(".fa-bars").click(function() {
-		$(this).hide();
-		$(".close").show();
+		$(this).css("display", "none");
+		$(".close").css("display", "block");
 		$("nav").css("width", "60%");
 		$("nav ul, nav div, button#subscribe").fadeIn("1000");
 	});
 	$(".close").click(function() {
-		$(this).hide();
-		$(".fa-bars").show();
+		$(this).css("display", "none");
+		$(".fa-bars").css("display", "block");
 		$("nav").width("0");
 		$("nav ul, nav div, button#subscribe").css("display",
 			"none");
