@@ -206,6 +206,10 @@ section {
     background-size: 100% 100%;
     transition: 1s ease-in-out;
 }
+.images:hover {
+    transform: rotate(360deg);
+
+}
 .images img {
     width: 100px;
     height: 100px;
@@ -335,22 +339,23 @@ h3 {
 .links a {
     text-decoration: none;
 }
-.works i {
-    font-size: 3rem;
+.links i {
+    color: #757575;
+    font-size: 3.3rem;
     margin: 0.7rem;
     transition: .3s ease-in-out;
+}
+.links .fa-youtube {
+    font-size: 4rem;
+}
+.links i:hover {
+    color: #FFFFFF;
 }
 .fa-youtube {
     color: var(--hero-section);
 }
 .fa-youtube:hover {
     color: var(--fa-youtube);
-}
-.fa-external-link {
-    color: #757575;
-}
-.fa-external-link:hover {
-    color: var(--icons-light);
 }
 .works i:hover {
     transform: scale(1.2);
