@@ -6,6 +6,9 @@
     font-family: Monospace;
     scroll-behavior: smooth;
 }
+html {
+    -webkit-text-size-adjust: 100%;
+}
 ::-webkit-scrollbar {
     display: none;
 }
