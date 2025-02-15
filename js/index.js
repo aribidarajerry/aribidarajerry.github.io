@@ -38,7 +38,8 @@ $(document).ready(function() {
 		alert("Still under development!");
 	});
 	$("#cv").click(function() {
-		alert("In progress... Please view My Projects");
+		// window.location.href = "https://aribidarajerry.github.io/files/RESUME.pdf"
+		window.location.href = "files/RESUME.pdf"
 	})
 	$("#projects").click(function() {
 		window.location.href = "https://eclecticsite.vercel.app";
