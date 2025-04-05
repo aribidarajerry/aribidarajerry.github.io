@@ -194,12 +194,12 @@ section {
 .cv {
     padding: 2em 0;
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 .cv button {
     margin: 1em;
     display: inline-block;
-    width: 300px;
+    width: 270px;
     border-radius: 5px;
     transition: .5s ease-in-out;
 }

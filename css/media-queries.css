@@ -91,7 +91,7 @@
         position: static;
         height: 0;
         overflow: visible;
-        padding: 0;
+         padding: 0;
         min-width: 400px;
     }
     nav ul, button, nav div {
@@ -143,6 +143,9 @@
     .article-3 .contact {
         margin: 0 5.5rem;
     }
+    .cv {
+        margin-bottom: 2%;
+    }
 }
 
 @media screen and (min-width: 960px) {
@@ -166,8 +169,8 @@
     ul li {
         padding: 2em 1.54em;
     }
-    .cv {
-        margin-bottom: 7%;
+    .cv button {
+        width: 300px;
     }
 }
 
