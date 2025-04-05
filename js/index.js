@@ -10,23 +10,9 @@ $(document).ready(function() {
 	// 		}
 	// 	}
 	// });
-	// $(".images img").mouseleave(function() {
-	// 	display.src = '';
-	// 	$('.img-display').css('display','none');
-	// });
 	$(".fa-bars").click(function() {
-		$(this).css("display", "none");
-		$(".close").css("display", "block");
-		$("nav").css("width", "60%");
-		$("nav ul, nav div, button#subscribe").fadeIn("1000");
-	});
-	$(".close").click(function() {
-		$(this).css("display", "none");
-		$(".fa-bars").css("display", "block");
-		$("nav").width("0");
-		$("nav ul, nav div, button#subscribe").css("display",
-			"none");
-		$(".form").slideUp("slow");
+		$(this).toggleClass("fa-close");
+		$("nav").toggleClass("active")
 	});
 	$("#subscribe").click(function() {
 		// $("nav").width("0");
@@ -39,8 +25,8 @@ $(document).ready(function() {
 	});
 	$("#cv").click(function() {
 		// window.location.href = "https://aribidarajerry.github.io/files/RESUME.pdf"
-		window.location.href = "files/RESUME.pdf"
-	})
+		window.location.href = "files/RESUME.pdf";
+	});
 	$("#projects").click(function() {
 		window.location.href = "https://eclecticsite.vercel.app";
 	});

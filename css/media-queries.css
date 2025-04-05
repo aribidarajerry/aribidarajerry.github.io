@@ -1,22 +1,26 @@
 @media screen and (min-width: 450px) {
+    .nav-bar {
+        padding: 0 4em;
+    }
     h1#logo {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     .fa-bars, .fa-close {
         font-size: 1.2em;
-        padding: 1.2em 1.5em;
     }
     nav {
-        padding-top: 4em;
+        padding-top: 3.2em;
     }
     ul li {
         font-size: 1.4em;
-        padding: 1.3em 1.9em;
+        padding: 1.5em 12%;
     }
     button {
+        padding: 1.1em;
+        font-size: 1.4em;
+    }
+    button#subscribe {
         width: 75%;
-        padding: 1.3em;
-        font-size: 1.2em;
     }
     .contact {
         padding: 2em;
@@ -61,6 +65,9 @@
     }
 }
 @media screen and (min-width: 600px) {
+    * {
+        scroll-padding-top: 80px;
+    }
     .center {
         margin: 0 auto;
         width: 90%;
@@ -71,11 +78,60 @@
 }
 
 @media screen and (min-width: 768px) {
-    h1#logo, .fa-bars, .fa-close {
-        padding: 1.5em 3em;
+    * {
+        scroll-padding-top: 100px;
+    }
+    h1#logo {
+        padding: 2em;
+    }
+    div .fa-bars, div .fa-close {
+        display: none;
+    }
+    nav {
+        position: static;
+        height: 0;
+        overflow: visible;
+        padding: 0;
+        min-width: 400px;
+    }
+    nav ul, button, nav div {
+        display: block;
+    }
+    .fa-bars, .fa-close {
+        display: none;
+    }
+    button#subscribe {
+        width: auto;
+        box-shadow: 0 0 7px #FFFFFF;
+        margin: 0;
+        display: flex;
+        justify-self: flex-end;
+        margin-top: 1.5em;
+        margin-right: 2.5em;
+    }
+    ul {
+        padding: 0;
+    }
+    ul a {
+        display: inline-block;
+    }
+    ul li {
+        font-size: 1.4em;
+        padding: 2em 1em;
+        color: #F9DF74;
+    }
+    nav .contact {
+        display: flex;
+        flex-direction: column;
+        justify-self: flex-end;
+    }
+    .contact a {
+        color: transparent;
     }
     .contact i {
         font-size: 2.3em;
+        padding: 0.5em;
+        text-align: right;
     }
     .content {
         padding: 2em 4.5em;
@@ -90,6 +146,9 @@
 }
 
 @media screen and (min-width: 960px) {
+    .nav-bar {
+        justify-content: space-around;
+    }
     .content {
         padding: 2em 7.5em;
         display: block;
@@ -101,12 +160,11 @@
     .article-3 .contact {
         margin: 0 9.5rem;
     }
-    ul {
-        display: block;
+    nav {
+        min-width: 500px;
     }
     ul li {
-        padding: 1.3em 2.3em;
-        white-space: normal;
+        padding: 2em 1.54em;
     }
 }
 
