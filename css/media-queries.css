@@ -144,7 +144,7 @@
         margin: 0 5.5rem;
     }
     .cv {
-        margin-bottom: 2%;
+        margin-bottom: -3%;
     }
 }
 
@@ -169,6 +169,15 @@
     ul li {
         padding: 2em 1.54em;
     }
+    .cv {
+        margin-bottom: 2%;
+    }
+    .cv button {
+        width: 280px;
+    }
+}
+
+@media screen and (min-width: 1100px) {
     .cv button {
         width: 300px;
     }
