@@ -146,6 +146,9 @@
     .cv {
         margin-bottom: -3%;
     }
+    .animate {
+        background-size: 80% 100%;
+    }
 }
 
 @media screen and (min-width: 960px) {
@@ -174,6 +177,9 @@
     }
     .cv button {
         width: 280px;
+    }
+    .animate {
+        background-size: 70% 100%;
     }
 }
 
