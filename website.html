@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://aribidarajerry.github.io/img/jerry.jpg">
+    <meta name="description" content="Hello! I'm Aribidara Jerry, a multifaceted individual with a passion for teaching, music, and technology.">
+    <title>Aribidara Jerry | Musician & Web Developer</title>
+    <link rel="shortcut icon" type="image/jpg" href="img/jerry.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="website.css">
+</head>
+
+<!-- MODAL -->
+<div class="comp-modal" id="compModal">
+    <div class="comp-overlay"></div>
+
+    <div class="comp-box">
+        <span class="close-modal">&times;</span>
+
+        <div class="video-wrapper">
+            <iframe id="video-frame" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+<body>
+
+    <header class="site-header">
+
+        <div class="logo">
+            Jerry A. Music
+        </div>
+
+        <nav class="nav-links">
+
+            <span class="nav-pill"></span>
+
+            <a href="#about" class="nav-item active">About</a>
+            <a href="#compositions" class="nav-item">Compositions</a>
+            <a href="#videos" class="nav-item">Videos</a>
+            <a href="#gallery-sec" class="nav-item">Gallery</a>
+
+        </nav>
+        <div class="menu-toggle">
+            ☰
+        </div>
+
+    </header>
+
+
+    <section class="hero" id="about">
+
+        <!-- TEXT SIDE -->
+        <div class="hero-text">
+            <h1>Aribidara Jerry</h1>
+
+            <h2>
+                <span id="typed-text"></span>
+                <span class="cursor">|</span>
+            </h2>
+
+            <p>
+                Music educator, instrumentalist, and developer...
+            </p>
+
+            <p>
+                I am a music educator, instrumentalist, and web developer passionate about
+                building structured learning experiences through music and technology.
+                My work bridges creativity, discipline, and digital innovation.
+            </p>
+
+            <p>
+                I specialize in teaching, composing, and developing music-driven platforms
+                that help learners and audiences experience music in a deeper, more practical way.
+            </p>
+
+            <button class="cta">Explore My Works</button>
+        </div>
+
+        <!-- IMAGE SIDE -->
+        <div class="hero-image" id="profileBox">
+
+            <img src="img/jerry.jpg" alt="Profile">
+
+            <!-- SOCIAL OVERLAY -->
+            <div class="social-overlay">
+                <a href="https://facebook.com/aribidara.jerry">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/aribidara.jerry/">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@aribidarajerry">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://tiktok.com/@aribidara.jerry">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="https://x.com/aribidarajerry">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://github.com/aribidarajerry">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="compositions" id="compositions">
+
+        <h2>Compositions</h2>
+
+        <div class="composition-grid">
+
+            <div class="music-card">
+                <img src="img/musical-moment-2.jpg" alt="Momenta musicaux No. 2">
+
+                <div class="overlay">
+                    <h3>Momenta musicaux No. 2</h3>
+
+                    <div class="buttons">
+                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1761062/Product.aspx" target="_blank">📄</a>
+                        <a href="#" class="youtube-btn" data-video="https://www.youtube.com/embed/E8FVY8CXq8Q?si=DWDbwqU7Dt_ff_fG">▶</a>
+                        <a href="https://audio.com/aribidara-jerry/audio/momenta-musicaux-no-2" target="_blank">🎧</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="music-card">
+                                                                                                                            <img src="img/how-great-is-our-God.jpg" alt="How great is our God">
+
+                                                                                                                            <div class="overlay">
+                                                                                                                                <h3>How great is our God</h3>
+
+                                                                                                                                <div class="buttons">
+                                                                                                                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1674853/Product.aspx">📄</a>
+                                                                                                                                    <a href="#" class="youtube-btn" data-video="#">▶</a>
+                                                                                                                                    <a href="https://audio.com/aribidara-jerry/audio/how-great-is-our-God" target="_blank">🎧</a>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div> -->
+
+            <div class="music-card">
+                <img src="img/musical-moment-1.jpg" alt="Momenta musicaux No. 1">
+
+                <div class="overlay">
+                    <h3>Momenta musicaux No. 1</h3>
+
+                    <div class="buttons">
+                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1673645/Product.aspx">📄</a>
+                        <a href="#" class="youtube-btn" data-video="https://www.youtube.com/embed/YBN1T56FHbE?si=IT6n47kyFVrx5DxI">▶</a>
+                        <a href="https://audio.com/aribidara-jerry/audio/momenta-musicaux-no-1">🎧</a>
+                    </div>
+                </div>
+            </div>
+
+            <!---->
+
+            <div class="music-card">
+                <img src="img/moment.jpg" alt="The moment">
+
+                <div class="overlay">
+                    <h3>The moment</h3>
+
+                    <div class="buttons">
+                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521416/Product.aspx">📄</a>
+                        <a href="#" class="youtube-btn" data-video="https://www.youtube.com/embed/FUJeC74TGIc?si=K6mQCR8Fjhx1e1oh">▶</a>
+                        <a href="https://audio.com/aribidara-jerry/audio/the-moment">🎧</a>
+                    </div>
+                </div>
+            </div>
+
+            <!---->
+
+
+            <div class="music-card">
+                <img src="img/waltz-in-e-minor.jpg" alt="Waltz in E minor">
+
+                <div class="overlay">
+                    <h3>WWaltz in E minor</h3>
+
+                    <div class="buttons">
+                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1678453/Product.aspx">📄</a>
+                        <a href="#" class="youtube-btn" data-video="https://www.youtube.com/embed/2oUMq5lJ9jw?si=iWJPJrMzwnHSa3g3">▶</a>
+                        <a href="https://audio.com/aribidara-jerry/audio/waltz-in-e-minor">🎧</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <img src="img/waltz-in-f-minor.jpg" alt="Waltz in F minor">
+
+                <div class="overlay">
+                    <h3>Waltz in F minor</h3>
+
+                    <div class="buttons">
+                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1673648/Product.aspx">📄</a>
+                        <a href="#" class="youtube-btn" data-video="https://www.youtube.com/embed/LgLarEpQke0?si=e9BpTCgupFlG5GHf">▶</a>
+                        <a href="https://audio.com/aribidara-jerry/audio/waltz-in-f-minor">🎧</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <img src="img/invention.jpg" alt="Invention No. 1">
+
+                <div class="overlay">
+                    <h3>Invention No. 1</h3>
+
+                    <div class="buttons">
+                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521403/Product.aspx">📄</a>
+                        <a href="#" class="youtube-btn" data-video="https://www.youtube.com/embed/jlROzN9nws8?si=eQAaMhBWul9yxT4y">▶</a>
+                        <a href="https://audio.com/aribidara-jerry/audio/invention-no-1">🎧</a>
+                    </div>
+                </div>
+            </div>
+
+            <!---->
+
+        </div>
+
+    </section>
+
+
+    <section class="performance" id="videos">
+
+        <h2>Videos</h2>
+
+        <!-- FILTERS -->
+        <div class="video-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="performance">Performance</button>
+            <button class="filter-btn" data-filter="teaching">Teaching</button>
+        </div>
+
+        <!-- GRID -->
+        <div class="video-grid">
+
+            <div class="video-item" data-category="performance">
+                <div class="video-placeholder youtube-btn"
+                    data-video="https://www.youtube.com/embed/KDTnYfh202o"
+                    style="background-image:url('https://img.youtube.com/vi/KDTnYfh202o/hqdefault.jpg')">
+                    <span class="play">▶</span>
+                </div>
+                <p class="video-title">
+                    Climax of "The Heavens are telling" by Haydn
+                </p>
+            </div>
+
+            <div class="video-item" data-category="performance">
+                <div class="video-placeholder youtube-btn"
+                    data-video="https://www.youtube.com/embed/wEetOCVJ_N0"
+                    style="background-image:url('https://img.youtube.com/vi/wEetOCVJ_N0/hqdefault.jpg')">
+                    <span class="play">▶</span>
+                </div>
+                <p class="video-title">
+                    Bach concerto in A minor
+                </p>
+            </div>
+
+            <div class="video-item" data-category="performance">
+                <div class="video-placeholder youtube-btn"
+                    data-video="https://www.youtube.com/embed/UiRJ4Z6l5bk"
+                    style="background-image:url('https://img.youtube.com/vi/UiRJ4Z6l5bk/hqdefault.jpg')">
+                    <span class="play">▶</span>
+                </div>
+                <p class="video-title">
+                    The heavens are telling 1
+                </p>
+            </div>
+
+            <div class="video-item" data-category="performance">
+                <div class="video-placeholder youtube-btn"
+                    data-video="https://www.youtube.com/embed/vFKYl2WNswM"
+                    style="background-image:url('https://img.youtube.com/vi/vFKYl2WNswM/hqdefault.jpg')">
+                    <span class="play">▶</span>
+                </div>
+                <p class="video-title">
+                    Dies Irae - Mozart's Requiem in D minor K 626
+                </p>
+            </div>
+
+            <div class="video-item" data-category="performance">
+                <div class="video-placeholder youtube-btn"
+                    data-video="https://www.youtube.com/embed/2XQ-uHfG0HA"
+                    style="background-image:url('https://img.youtube.com/vi/2XQ-uHfG0HA/hqdefault.jpg')">
+                    <span class="play">▶</span>
+                </div>
+                <p class="video-title">
+                    Bass and lead guitarist
+                </p>
+            </div>
+
+            <div class="video-item" data-category="performance">
+                <div class="video-placeholder youtube-btn"
+                    data-video="https://www.youtube.com/embed/gwHAlOL_Lm0"
+                    style="background-image:url('https://img.youtube.com/vi/gwHAlOL_Lm0/hqdefault.jpg')">
+                    <span class="play">▶</span>
+                </div>
+                <p class="video-title">
+                    Hymn - Do you know my Jesus
+                </p>
+            </div>
+
+            <div class="video-item" data-category="performance">
+                <div class="video-placeholder youtube-btn"
+                    data-video="https://www.youtube.com/embed/kw5rP2KTz5E"
+                    style="background-image:url('https://img.youtube.com/vi/kw5rP2KTz5E/hqdefault.jpg')">
+                    <span class="play">▶</span>
+                </div>
+                <p class="video-title">
+                    Chopin fantasie impromptu
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="gallery-section" id="gallery-sec">
+        <h2>Gallery</h2>
+        <!-- FILTER BUTTONS -->
+        <div class="filter-buttons">
+            <button data-filter="*" class="active">All</button>
+            <button data-filter=".performance">Performance</button>
+            <button data-filter=".teaching">Teaching</button>
+            <button data-filter=".event">Event</button>
+            <button data-filter=".personal">Personal</button>
+        </div>
+
+        <div class="gallery-outer">
+            <div class="gallery" id="gallery">
+                <div class="grid-sizer"></div>
+                <div class="grid-item personal">
+                    <img src="img/jerry18.jpg">
+                </div>
+                <div class="grid-item performance">
+                    <img src="img/jerry13.jpg">
+                </div>
+                <div class="grid-item teaching">
+                    <img src="img/jerry16.jpg">
+                </div>
+                <div class="grid-item teaching">
+                    <img src="img/jerry23.jpg">
+                </div>
+                <div class="grid-item performance">
+                    <img src="img/jerry12.jpg">
+                </div>
+                <div class="grid-item performance">
+                    <img src="img/jerry11.jpg">
+                </div>
+                <div class="grid-item personal">
+                    <img src="img/jerry21.jpg">
+                </div>
+                <div class="grid-item event">
+                    <img src="img/jerry10.jpg">
+                </div>
+                <div class="grid-item performance">
+                    <img src="img/jerry14.jpg">
+                </div>
+                <div class="grid-item event">
+                    <img src="img/jerry9.jpg">
+                </div>
+                <div class="grid-item teaching">
+                    <img src="img/jerry20.jpg">
+                </div>
+                <div class="grid-item personal">
+                    <img src="img/jerry8.jpg">
+                </div>
+                <div class="grid-item teaching">
+                    <img src="img/jerry22.jpg">
+                </div>
+                <div class="grid-item performance">
+                    <img src="img/jerry17.jpg">
+                </div>
+                <div class="grid-item event">
+                    <img src="img/jerry7.jpg">
+                </div>
+                <div class="grid-item teaching">
+                    <img src="img/jerry15.jpg">
+                </div>
+                <div class="grid-item event">
+                    <img src="img/jerry6.jpg">
+                </div>
+                <div class="grid-item teaching">
+                    <img src="img/jerry5.jpg">
+                </div>
+                <div class="grid-item event">
+                    <img src="img/jerry4.jpg">
+                </div>
+                <div class="grid-item performance">
+                    <img src="img/jerry3.jpg">
+                </div>
+                <div class="grid-item event">
+                    <img src="img/jerry2.jpg">
+                </div>
+                <div class="grid-item performance">
+                    <img src="img/jerry1.jpg">
+                </div>
+                <div class="grid-item personal">
+                    <img src="img/jerry19.jpg">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script src="website.js"></script>
+
+</body>
+</html>
