@@ -1,406 +1,1237 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://aribidarajerry.github.io/img/jerry.jpg">
-    <meta name="description" content="Hello! I'm Aribidara Jerry, a multifaceted individual with a passion for teaching, music, and technology.">
     <title>Aribidara Jerry | Musician & Web Developer</title>
-    <link rel="shortcut icon" type="image/jpg" href="img/jerry.jpg">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/webquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
-
-    <script>
-        // For editing purposes only
-        // setTimeout(function() {
-        //     location.reload()
-        // }, 3000);
-    </script>
     
+    <!-- 1. Browser Theme Color (Changes the mobile browser UI color) -->
+    <!-- Matches your dark theme background -->
+    <meta name="theme-color" content="#0a0014" media="(prefers-color-scheme: dark)">
+    <!-- Matches your light theme background -->
+    <meta name="theme-color" content="#f5f0fa" media="(prefers-color-scheme: light)">
+
+    <!-- 2. Link Preview Image (What shows up on WhatsApp, Twitter, iMessage, etc.) -->
+    <meta property="og:title" content="Aribidara Jerry | Musician & Web Developer">
+    <meta property="og:description" content="Musician, Composer, Educator, and Web Developer. Harmonizing classical music and modern code.">
+    <meta property="og:image" content="https://aribidarajerry.github.io/img/jerry.jpg"> <!-- REPLACE WITH YOUR ACTUAL IMAGE URL -->
+    <meta property="og:url" content="https://aribidarajerry.github.io/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter specific preview tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aribidara Jerry | Musician & Web Developer">
+    <meta name="twitter:description" content="Musician, Composer, Educator, and Web Developer.">
+    <meta name="twitter:image" content="https://aribidarajerry.github.io/img/jerry.jpg"> <!-- REPLACE WITH YOUR ACTUAL IMAGE URL -->
+
+    <!-- Fonts: Extreme bold/display + clean sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Masonry & Isotope Layout -->
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]'],
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: 'var(--bg-main)',
+                        textMain: 'var(--text-main)',
+                        textMuted: 'var(--text-muted)',
+                        glassBg: 'var(--glass-bg)',
+                        violet: 'var(--c-violet)',
+                        cyan: 'var(--c-cyan)',
+                        magenta: 'var(--c-magenta)',
+                        gold: 'var(--c-gold)',
+                    },
+                    fontFamily: {
+                        display: ['Syncopate', 'sans-serif'],
+                        body: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Extreme 4-Color Theme Variables */
+        :root[data-theme="dark"] {
+            --bg-main: #0a0014;
+            --text-main: #ffffff;
+            --text-muted: #8b7d9e;
+            --glass-bg: rgba(20, 0, 40, 0.4);
+            --c-violet: #6b21a8;
+            --c-cyan: #00f3ff;
+            --c-magenta: #ff0055;
+            --c-gold: #ffc400;
+        }
+        
+        :root[data-theme="light"] {
+            --bg-main: #f5f0fa;
+            --text-main: #130024;
+            --text-muted: #564c63;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --c-violet: #4c1d95;
+            --c-cyan: #008b8b;
+            --c-magenta: #c7004c;
+            --c-gold: #b8860b;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Glassmorphism & Extreme Borders */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: inherit;
+            background: linear-gradient(45deg, var(--c-cyan), var(--c-magenta), var(--c-gold));
+            opacity: 0.15;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-panel:hover::before {
+            opacity: 0.4;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, var(--c-cyan), var(--c-magenta), var(--c-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Global Canvas Background */
+        #staff-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.8;
+            mix-blend-mode: screen;
+        }
+        :root[data-theme="light"] #staff-canvas {
+            mix-blend-mode: multiply;
+            opacity: 0.4;
+        }
+
+        /* Floating Musical Elements */
+        .floating-element {
+            position: fixed;
+            user-select: none;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: serif;
+            text-shadow: 0 0 15px currentColor;
+        }
+        
+        .floating-element:hover {
+            transform: scale(1.8) rotate(15deg) !important;
+            filter: brightness(1.5);
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: rippleAnim 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            z-index: 9;
+        }
+
+        @keyframes rippleAnim {
+            0% { width: 0; height: 0; opacity: 1; border: 4px solid var(--c-cyan); }
+            50% { border: 2px solid var(--c-magenta); }
+            100% { width: 200px; height: 200px; opacity: 0; border: 1px solid var(--c-gold); }
+        }
+
+        /* Asymmetric Typography Utilities */
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-main);
+        }
+        .outline-text:hover {
+            -webkit-text-stroke: 2px var(--c-cyan);
+            color: var(--c-magenta);
+            transition: all 0.3s;
+        }
+
+        /* Masonry Grid Styles */
+        .masonry-grid {
+            column-count: 1; 
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+        
+        /* Gallery Transitions */
+        .gallery-item {
+            position: relative;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform-origin: center;
+        }
+
+        /* Social Link Hover Expansion */
+        .social-link { 
+            width: 3rem; 
+            height: 3rem; 
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s; 
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .social-link:hover { width: 14rem; }
+        .social-link span { 
+            opacity: 0; 
+            position: absolute; 
+            white-space: nowrap; 
+            font-size: 0.75rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            transition: opacity 0.2s ease; 
+        }
+        .social-link:hover span { opacity: 1; transition-delay: 0.2s; }
+        .social-link i { transition: opacity 0.2s ease, transform 0.4s; position: absolute; }
+        .social-link:hover i { opacity: 0; transform: scale(0.5); }
+    </style>
 </head>
-<body class="container-fluid">
-    <header class="sticky-sm-top">
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#music">Music</a></li>
-                <!-- <li><a href="#teaching">Teaching</a></li> -->
-                <li><a href="#videos">Videos</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <!-- <li><a href="#contact">Contact</a></li> -->
-            </ul>
+<body class="font-body antialiased relative">
+
+    <canvas id="staff-canvas"></canvas>
+
+    <!-- Global Header Wrapper -->
+    <header class="fixed top-0 left-0 w-full z-[100] px-3 min-[480px]:px-6 md:px-4 lg:px-8 xl:px-12 py-3 md:py-4 flex items-center justify-between pointer-events-none">
+        
+        <!-- Multicolored Logo (Far Left) -->
+        <a href="#home" class="font-display font-bold text-base min-[480px]:text-xl md:text-xl lg:text-2xl xl:text-3xl tracking-widest md:tracking-[0.15em] xl:tracking-[0.2em] pointer-events-auto flex items-center shrink-0 mr-2 min-[480px]:mr-4">
+            <span class="text-[#00f3ff]">J</span>
+            <span class="text-[#a855f7]">E</span>
+            <span class="text-[#ff0055]">R</span>
+            <span class="text-[#ff3300]">R</span>
+            <span class="text-[#ff9900]">Y</span>
+            <span class="text-[#ffc400]">.</span>
+        </a>
+
+        <!-- Desktop Navigation (Original on md/lg, Unified Pill on xl) -->
+        <div class="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 pointer-events-auto shrink-0">
+            <nav class="flex items-center gap-4 lg:gap-6 xl:gap-8 xl:glass-panel xl:px-8 xl:py-3 xl:rounded-full xl:bg-[#0a0014]/90 xl:border xl:border-white/10 xl:shadow-2xl z-50 transition-all duration-300">
+                <a href="#home" class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-xs xl:text-sm font-display font-bold tracking-wider lg:tracking-widest text-textMain hover:text-cyan transition-colors uppercase whitespace-nowrap shrink-0">
+                    <i class="ph ph-house text-sm lg:text-base xl:text-lg text-cyan"></i> HOME
+                </a>
+                <a href="#compositions" class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-xs xl:text-sm font-display font-bold tracking-wider lg:tracking-widest text-textMain hover:text-magenta transition-colors uppercase whitespace-nowrap shrink-0">
+                    <i class="ph ph-music-notes text-sm lg:text-base xl:text-lg text-magenta"></i> COMPOSITIONS
+                </a>
+                <a href="#videos" class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-xs xl:text-sm font-display font-bold tracking-wider lg:tracking-widest text-textMain hover:text-gold transition-colors uppercase whitespace-nowrap shrink-0">
+                    <i class="ph ph-video-camera text-sm lg:text-base xl:text-lg text-gold"></i> VIDEOS
+                </a>
+                <a href="#gallery" class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-xs xl:text-sm font-display font-bold tracking-wider lg:tracking-widest text-textMain hover:text-cyan transition-colors uppercase whitespace-nowrap shrink-0">
+                    <i class="ph ph-image text-sm lg:text-base xl:text-lg text-cyan"></i> GALLERY
+                </a>
+                <a href="#about" class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-xs xl:text-sm font-display font-bold tracking-wider lg:tracking-widest text-textMain hover:text-gold transition-colors uppercase whitespace-nowrap shrink-0">
+                    <i class="ph ph-user text-sm lg:text-base xl:text-lg text-gold"></i> ABOUT
+                </a>
+                <a href="#contact" class="flex items-center gap-1.5 lg:gap-2 text-[10px] lg:text-xs xl:text-sm font-display font-bold tracking-wider lg:tracking-widest text-textMain hover:text-violet transition-colors uppercase whitespace-nowrap shrink-0">
+                    <i class="ph ph-envelope text-sm lg:text-base xl:text-lg text-violet"></i> CONTACT
+                </a>
+            </nav>
+            <!-- Separate Circular Theme Toggle -->
+            <button class="theme-toggle-btn w-9 h-9 lg:w-10 lg:h-10 xl:w-12 xl:h-12 rounded-full flex items-center justify-center text-textMain hover:text-cyan transition-all duration-300 focus:outline-none bg-glassBg border border-white/20 shadow-lg hover:shadow-[0_0_15px_rgba(0,243,255,0.3)] hover:scale-105 active:scale-95 cursor-pointer z-50 shrink-0">
+                <i class="theme-icon ph ph-sun text-base lg:text-xl xl:text-2xl text-gold"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Pill -->
+        <nav class="flex md:hidden items-center gap-1 min-[480px]:gap-2 sm:gap-3 glass-panel px-2.5 min-[480px]:px-4 py-1.5 min-[480px]:py-2.5 rounded-full pointer-events-auto shadow-2xl bg-[#0a0014]/90 border border-white/10 overflow-visible z-50 shrink-0">
+            <div class="group relative flex flex-col items-center shrink-0">
+                <a href="#home" class="text-textMuted group-hover:text-cyan group-hover:-translate-y-1.5 transition-all duration-300 p-1 min-[480px]:p-1.5"><i class="ph ph-house text-base min-[480px]:text-xl sm:text-[1.3rem]"></i></a>
+                <span class="absolute top-full mt-2 px-2.5 py-1 text-[0.6rem] font-display font-bold tracking-widest uppercase text-cyan bg-black/90 border border-cyan/40 rounded-md shadow-[0_0_10px_rgba(0,243,255,0.4)] opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out whitespace-nowrap z-[100]">Home</span>
+            </div>
+            
+            <div class="group relative flex flex-col items-center shrink-0">
+                <a href="#compositions" class="text-textMuted group-hover:text-magenta group-hover:-translate-y-1.5 transition-all duration-300 p-1 min-[480px]:p-1.5"><i class="ph ph-music-notes text-base min-[480px]:text-xl sm:text-[1.3rem]"></i></a>
+                <span class="absolute top-full mt-2 px-2.5 py-1 text-[0.6rem] font-display font-bold tracking-widest uppercase text-magenta bg-black/90 border border-magenta/40 rounded-md shadow-[0_0_10px_rgba(255,0,85,0.4)] opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out whitespace-nowrap z-[100]">Scores</span>
+            </div>
+            
+            <div class="group relative flex flex-col items-center shrink-0">
+                <a href="#videos" class="text-textMuted group-hover:text-gold group-hover:-translate-y-1.5 transition-all duration-300 p-1 min-[480px]:p-1.5"><i class="ph ph-video-camera text-base min-[480px]:text-xl sm:text-[1.3rem]"></i></a>
+                <span class="absolute top-full mt-2 px-2.5 py-1 text-[0.6rem] font-display font-bold tracking-widest uppercase text-gold bg-black/90 border border-gold/40 rounded-md shadow-[0_0_10px_rgba(255,196,0,0.4)] opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out whitespace-nowrap z-[100]">Videos</span>
+            </div>
+            
+            <div class="group relative flex flex-col items-center shrink-0">
+                <a href="#gallery" class="text-textMuted group-hover:text-cyan group-hover:-translate-y-1.5 transition-all duration-300 p-1 min-[480px]:p-1.5"><i class="ph ph-image text-base min-[480px]:text-xl sm:text-[1.3rem]"></i></a>
+                <span class="absolute top-full mt-2 px-2.5 py-1 text-[0.6rem] font-display font-bold tracking-widest uppercase text-cyan bg-black/90 border border-cyan/40 rounded-md shadow-[0_0_10px_rgba(0,243,255,0.4)] opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out whitespace-nowrap z-[100]">Gallery</span>
+            </div>
+            
+            <div class="group relative flex flex-col items-center shrink-0">
+                <a href="#about" class="text-textMuted group-hover:text-gold group-hover:-translate-y-1.5 transition-all duration-300 p-1 min-[480px]:p-1.5"><i class="ph ph-user text-base min-[480px]:text-xl sm:text-[1.3rem]"></i></a>
+                <span class="absolute top-full mt-2 px-2.5 py-1 text-[0.6rem] font-display font-bold tracking-widest uppercase text-gold bg-black/90 border border-gold/40 rounded-md shadow-[0_0_10px_rgba(255,196,0,0.4)] opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out whitespace-nowrap z-[100]">About</span>
+            </div>
+            
+            <div class="group relative flex flex-col items-center shrink-0">
+                <a href="#contact" class="text-textMuted group-hover:text-violet group-hover:-translate-y-1.5 transition-all duration-300 p-1 min-[480px]:p-1.5"><i class="ph ph-envelope text-base min-[480px]:text-xl sm:text-[1.3rem]"></i></a>
+                <span class="absolute top-full mt-2 px-2.5 py-1 text-[0.6rem] font-display font-bold tracking-widest uppercase text-violet bg-black/90 border border-violet/40 rounded-md shadow-[0_0_10px_rgba(107,33,168,0.4)] opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out whitespace-nowrap z-[100]">Contact</span>
+            </div>
+            
+            <div class="w-px h-4 sm:h-5 bg-white/20 mx-0.5 shrink-0"></div>
+            
+            <div class="group relative flex flex-col items-center shrink-0">
+                <button class="theme-toggle-btn text-textMuted group-hover:text-textMain group-hover:-translate-y-1.5 transition-all duration-300 focus:outline-none p-1 min-[480px]:p-1.5">
+                    <i class="theme-icon ph ph-sun text-base min-[480px]:text-xl sm:text-[1.3rem] text-gold"></i>
+                </button>
+                <span class="absolute top-full mt-2 px-2.5 py-1 text-[0.6rem] font-display font-bold tracking-widest uppercase text-textMain bg-black/90 border border-white/40 rounded-md shadow-[0_0_10px_rgba(255,255,255,0.2)] opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out whitespace-nowrap z-[100]">Theme</span>
+            </div>
         </nav>
     </header>
 
-    <section id="home">
-        <h1>Hello, I'm Aribidara Jerry</h1>
-        <p>
-            Musician • Composer • Educator • Web Developer
-        </p>
-        <a href="#music">Explore My Works <i class="fa-solid fa-arrow-down"></i></a>
-    </section>
+    <div id="floating-container"></div>
 
-    <div class="scroll">
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about">
-                <div class="img">
-                    <img src="img/jerry8.jpg" alt="Aribidara Jerry">
-                    <div class="social-links">
-                        <a href="https://facebook.com/aribidara.jerry">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/aribidara.jerry/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@aribidarajerry">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="https://tiktok.com/@aribidara.jerry">
-                            <i class="fa-brands fa-tiktok"></i>
-                        </a>
-                        <a href="https://x.com/aribidarajerry">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="https://github.com/aribidarajerry">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+    <main class="relative z-20 overflow-hidden">
+        
+        <section id="home" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-32 pb-16 relative">
+            <h2 class="font-display text-[12vw] leading-none font-bold tracking-tighter text-textMain mix-blend-difference z-10">
+                SOUND
+            </h2>
+            <h2 class="font-display text-[12vw] leading-none font-bold tracking-tighter outline-text -mt-4 md:-mt-10 z-10 text-right">
+                BEYOND
+            </h2>
+            <h2 class="font-display text-[12vw] leading-none font-bold tracking-tighter text-gradient -mt-4 md:-mt-10 z-10">
+                MOTION.
+            </h2>
+            
+            <div class="absolute right-10 bottom-32 max-w-sm glass-panel p-6 rounded-3xl z-20 transform rotate-3 hover:rotate-0 transition-transform">
+                <p class="font-body text-sm md:text-base font-light text-textMain">
+                    <strong class="text-cyan">Aribidara Jerry</strong> / Musician, Composer, Educator, and Web Developer.
+                </p>
+                <div class="mt-4 flex gap-2">
+                    <span class="px-3 py-1 rounded-full bg-violet/20 text-violet text-xs border border-violet">Piano</span>
+                    <span class="px-3 py-1 rounded-full bg-cyan/20 text-cyan text-xs border border-cyan">Organ</span>
+                    <span class="px-3 py-1 rounded-full bg-magenta/20 text-magenta text-xs border border-magenta">Code</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXACT Compositions Section from index_6.html -->
+        <section id="compositions" class="py-24 px-6 md:px-20 border-t border-white/5 relative">
+            <div class="mb-12">
+                <h3 class="font-display text-4xl md:text-6xl text-textMain font-bold outline-text">SCORES</h3>
+                <p class="text-textMuted font-body mt-4 max-w-xl">Discover my musical creations, featuring a collection of videos and original compositions. Explore the intersection of sound and vision.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-6 rounded-3xl border border-magenta/20 hover:border-magenta/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-magenta mb-1">Amazing grace Organ</h4>
+                        <p class="text-sm text-textMuted mb-2">Organ Arrangement</p>
                     </div>
-                    <p class="content">
-                        Hello! I'm Aribidara Jerry, a multifaceted individual with a passion for teaching, music, and technology. As a certified teacher, I've had the privilege of inspiring and educating students in various settings. My love for music led me to become an instrumentalist, and I've had the honor of being certified by renowned institutions such as <a href="https://muson.org/" target="_blank">The Musical Society Of Nigeria (MUSON)</a> and <a href="https://www.abrsm.org/en-ng" target="_blank">The Associated Board of Royal Schools of Music (ABRSM)</a>.<br /><br />In addition to my teaching and musical pursuits, I'm also a web developer with a keen interest in building innovative and user-friendly digital experiences. This site was solely developed by me. I'm always looking for ways to combine my skills to create something truly unique and impactful.
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-gold/10 text-gold rounded-xl text-sm font-bold hover:bg-gold hover:text-bgMain transition-colors border border-gold/20" onclick="playTrack(0); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dw80ak7ogQU" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://musescore.com/user/53239608/scores/35415929" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-magenta/10 text-magenta rounded-xl text-sm font-bold hover:bg-magenta hover:text-bgMain transition-colors border border-magenta/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-panel p-6 rounded-3xl border border-cyan/20 hover:border-cyan/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-cyan mb-1">Amazing grace Melody</h4>
+                        <p class="text-sm text-textMuted mb-2">Organ Arrangement Melody Guide</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-gold/10 text-gold rounded-xl text-sm font-bold hover:bg-gold hover:text-bgMain transition-colors border border-gold/20" onclick="playTrack(1); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZxokcG1wxFA" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://musescore.com/user/53239608/scores/35415986" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-cyan/10 text-cyan rounded-xl text-sm font-bold hover:bg-cyan hover:text-bgMain transition-colors border border-cyan/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-panel p-6 rounded-3xl border border-gold/20 hover:border-gold/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-gold mb-1">Momenta musicaux No. 2</h4>
+                        <p class="text-sm text-textMuted mb-2">Original Composition</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-cyan/10 text-cyan rounded-xl text-sm font-bold hover:bg-cyan hover:text-bgMain transition-colors border border-cyan/20" onclick="playTrack(2); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/E8FVY8CXq8Q" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1761062/Product.aspx" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-gold/10 text-gold rounded-xl text-sm font-bold hover:bg-gold hover:text-bgMain transition-colors border border-gold/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-panel p-6 rounded-3xl border border-violet/20 hover:border-violet/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-violet mb-1">Momenta musicaux No. 1</h4>
+                        <p class="text-sm text-textMuted mb-2">Original Composition</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-gold/10 text-gold rounded-xl text-sm font-bold hover:bg-gold hover:text-bgMain transition-colors border border-gold/20" onclick="playTrack(3); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/YBN1T56FHbE" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1673645/Product.aspx" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-violet/10 text-violet rounded-xl text-sm font-bold hover:bg-violet hover:text-bgMain transition-colors border border-violet/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-panel p-6 rounded-3xl border border-magenta/20 hover:border-magenta/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-magenta mb-1">The Moment</h4>
+                        <p class="text-sm text-textMuted mb-2">Original Composition</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-cyan/10 text-cyan rounded-xl text-sm font-bold hover:bg-cyan hover:text-bgMain transition-colors border border-cyan/20" onclick="playTrack(4); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/FUJeC74TGIc" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521416/Product.aspx" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-magenta/10 text-magenta rounded-xl text-sm font-bold hover:bg-magenta hover:text-bgMain transition-colors border border-magenta/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-panel p-6 rounded-3xl border border-cyan/20 hover:border-cyan/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-cyan mb-1">Waltz in E minor</h4>
+                        <p class="text-sm text-textMuted mb-2">Original Composition</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-gold/10 text-gold rounded-xl text-sm font-bold hover:bg-gold hover:text-bgMain transition-colors border border-gold/20" onclick="playTrack(5); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/2oUMq5lJ9jw" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1678453/Product.aspx" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-cyan/10 text-cyan rounded-xl text-sm font-bold hover:bg-cyan hover:text-bgMain transition-colors border border-cyan/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+                
+                <!-- Card 7 -->
+                <div class="glass-panel p-6 rounded-3xl border border-gold/20 hover:border-gold/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-gold mb-1">Waltz in F minor</h4>
+                        <p class="text-sm text-textMuted mb-2">Original Composition</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-violet/10 text-violet rounded-xl text-sm font-bold hover:bg-violet hover:text-bgMain transition-colors border border-violet/20" onclick="playTrack(6); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/LgLarEpQke0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1673648/Product.aspx" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-gold/10 text-gold rounded-xl text-sm font-bold hover:bg-gold hover:text-bgMain transition-colors border border-gold/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="glass-panel p-6 rounded-3xl border border-violet/20 hover:border-violet/50 transition-colors group flex flex-col gap-4">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold text-violet mb-1">Invention No. 1</h4>
+                        <p class="text-sm text-textMuted mb-2">Original Composition</p>
+                    </div>
+                    <button class="flex items-center justify-center gap-2 w-full py-3 bg-magenta/10 text-magenta rounded-xl text-sm font-bold hover:bg-magenta hover:text-bgMain transition-colors border border-magenta/20" onclick="playTrack(7); createRipple(event.clientX, event.clientY);">
+                        <i class="ph ph-play-circle text-xl"></i> PLAY AUDIO
+                    </button>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-white/10 relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/jlROzN9nws8" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521403/Product.aspx" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-violet/10 text-violet rounded-xl text-sm font-bold hover:bg-violet hover:text-bgMain transition-colors border border-violet/20">
+                        <i class="ph ph-file-pdf text-xl"></i> GET SCORE
+                    </a>
+                </div>
+            </div>
+            
+            <p class="text-sm text-textMuted font-body mt-12 max-w-3xl text-center mx-auto">
+                You will find more of my documented composition on <a href="https://www.sheetmusicdirect.com/en-US/Search.aspx?query=Aribidara%2BJerry" target="_blank" class="text-cyan font-bold hover:underline">SHEETMUSICDIRECT</a>. Please note that I have previously published works under the name A.T.M.F. Jerry. Moving forward, all works will be attributed to <b>Aribidara Jerry</b> for consistency. Both names refer to the same creator.
             </p>
+        </section>
+
+        <!-- Updated Videos Section -->
+        <section id="videos" class="py-24 px-6 md:px-20 border-t border-white/5 relative">
+            <div class="mb-12 text-right">
+                <h3 class="font-display text-4xl md:text-6xl text-textMain font-bold text-gradient">MOTION</h3>
+                <p class="text-textMuted font-body mt-4 max-w-xl ml-auto">Live performances highlighting my skills as an instrumentalist, from classical masterpieces to contemporary works.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Video 1 -->
+                <div class="glass-panel p-4 rounded-3xl border border-cyan/20 hover:border-cyan/50 transition-colors">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black relative flex items-center justify-center group cursor-pointer">
+                         <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/r_aE_e4HvHo" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mt-4 text-textMain px-2">Mozart Piano Sonata in C major, K. 545</h4>
+                </div>
+                
+                <!-- Video 2 (New) -->
+                <div class="glass-panel p-4 rounded-3xl border border-magenta/20 hover:border-magenta/50 transition-colors">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black relative flex items-center justify-center group cursor-pointer">
+                         <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/6ycg5ONxCpI" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mt-4 text-textMain px-2">Herr Christ, Der Einge Gottes Sohn - J.S. Bach</h4>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="glass-panel p-4 rounded-3xl border border-gold/20 hover:border-gold/50 transition-colors">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black relative flex items-center justify-center group cursor-pointer">
+                         <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/8tH3vOXZIms" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mt-4 text-textMain px-2">Sunday Service | Excerpts of Hymns</h4>
+                </div>
+                
+                <!-- Video 4 (New) -->
+                <div class="glass-panel p-4 rounded-3xl border border-violet/20 hover:border-violet/50 transition-colors">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black relative flex items-center justify-center group cursor-pointer">
+                         <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/ukD1sAtcB4Q" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mt-4 text-textMain px-2">Lob sei dem allmachtigen Gott - J.S. Bach</h4>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="glass-panel p-4 rounded-3xl border border-cyan/20 hover:border-cyan/50 transition-colors">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black relative flex items-center justify-center group cursor-pointer">
+                         <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/wEetOCVJ_N0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mt-4 text-textMain px-2">Bach Concerto in A minor</h4>
+                </div>
+
+                <!-- Video 6 (New) -->
+                <div class="glass-panel p-4 rounded-3xl border border-magenta/20 hover:border-magenta/50 transition-colors">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black relative flex items-center justify-center group cursor-pointer">
+                         <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/VvHzfi7VVxs" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-display text-xl font-bold mt-4 text-textMain px-2">Come Holy Spirit</h4>
+                </div>
+            </div>
+            <p class="text-sm text-textMuted font-body mt-8 max-w-3xl text-right mx-auto">
+                Visit my <a href="https://www.youtube.com/@aribidarajerry" target="_blank" class="text-magenta font-bold hover:underline">YouTube channel</a> for more.
+            </p>
+        </section>
+
+        <!-- Auto-Orientation Masonry Gallery (Isotope) -->
+        <section id="gallery" class="py-24 px-6 md:px-20 border-t border-white/5 min-h-screen">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h3 class="font-display text-4xl md:text-6xl text-textMain font-bold">VISUALS</h3>
+                
+                <div class="flex flex-wrap gap-3 mt-6 md:mt-0" id="gallery-filters">
+                    <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full border border-cyan text-cyan hover:bg-cyan hover:text-bgMain transition-all text-xs font-bold font-display">ALL</button>
+                    <button data-filter="performances" class="filter-btn px-5 py-2 rounded-full border border-magenta text-magenta hover:bg-magenta hover:text-bgMain transition-all text-xs font-bold font-display">PERFORMANCES</button>
+                    <button data-filter="teaching" class="filter-btn px-5 py-2 rounded-full border border-gold text-gold hover:bg-gold hover:text-bgMain transition-all text-xs font-bold font-display">TEACHING</button>
+                    <button data-filter="portraits" class="filter-btn px-5 py-2 rounded-full border border-violet text-violet hover:bg-violet hover:text-bgMain transition-all text-xs font-bold font-display">PORTRAITS</button>
+                    <button data-filter="Moments" class="filter-btn px-5 py-2 rounded-full border border-cyan text-cyan hover:bg-cyan hover:text-bgMain transition-all text-xs font-bold font-display">MOMENTS</button>
+                </div>
+            </div>
+
+            <!-- Isotope Grid Container -->
+            <div class="w-full -mx-3" id="gallery-grid">
+                
+
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="moments">
+                    <img src="img/jerry24.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/ff0055?text=Jerry+24'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="portraits">
+                    <img src="img/jerry23.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/800x600/140028/ffc400?text=Jerry+23'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="teaching">
+                    <img src="img/jerry22.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/00f3ff?text=Jerry+22'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="performances">
+                    <img src="img/jerry21.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x800/140028/ffc400?text=Jerry+21'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="moments">
+                    <img src="img/jerry20.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/ff0055?text=Jerry+20'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="portraits">
+                    <img src="img/jerry19.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/800x600/140028/ffc400?text=Jerry+19'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="teaching">
+                    <img src="img/jerry18.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/00f3ff?text=Jerry+18'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="performances">
+                    <img src="img/jerry17.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x800/140028/ffc400?text=Jerry+17'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="moments">
+                    <img src="img/jerry16.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/ff0055?text=Jerry+16'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="portraits">
+                    <img src="img/jerry15.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/800x600/140028/ffc400?text=Jerry+15'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="teaching">
+                    <img src="img/jerry14.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/00f3ff?text=Jerry+14'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="performances">
+                    <img src="img/jerry13.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x800/140028/ffc400?text=Jerry+13'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>                
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="moments">
+                    <img src="img/jerry12.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/ff0055?text=Jerry+12'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="portraits">
+                    <img src="img/jerry11.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/800x600/140028/ffc400?text=Jerry+11'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="teaching">
+                    <img src="img/jerry10.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/00f3ff?text=Jerry+10'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="performances">
+                    <img src="img/jerry9.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x800/140028/ffc400?text=Jerry+9'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="moments">
+                    <img src="img/jerry8.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/ff0055?text=Jerry+8'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="portraits">
+                    <img src="img/jerry7.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x800/140028/00f3ff?text=Jerry+7'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="teaching">
+                    <img src="img/jerry6.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/800x600/140028/ffc400?text=Jerry+6'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="performances">
+                    <img src="img/jerry5.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/ff0055?text=Jerry+5'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="moments">
+                    <img src="img/jerry4.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x800/140028/00f3ff?text=Jerry+4'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="portraits">
+                    <img src="img/jerry3.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x800/140028/00f3ff?text=Jerry+3'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="teaching">
+                    <img src="img/jerry2.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/600x600/140028/ffc400?text=Jerry+2'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+                <div class="gallery-item w-full sm:w-1/2 lg:w-1/3 px-3 mb-6" data-category="performances">
+                    <img src="img/jerry1.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/800x600/140028/ff0055?text=Jerry+1'" class="w-full h-auto opacity-65 hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all durar:scale-105 transition-all duration-500 block rounded-xl border border-white/10">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 px-6 md:px-20 border-t border-white/5 relative">
+            <div class="flex flex-col gap-16">
+                <!-- Top Row: Portrait and Bio -->
+                <div class="flex flex-col md:flex-row items-center gap-16">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-cyan via-magenta to-gold opacity-50 blur-3xl rounded-full -z-10 animate-pulse"></div>
+                        <div class="glass-panel p-2 rounded-[2rem] transform -rotate-3 hover:rotate-0 transition-transform duration-500 border border-white/20">
+                            <!-- LOCAL PORTRAIT LINK -->
+                            <img src="img/jerry.jpg" alt="Aribidara Jerry" onerror="this.src='https://placehold.co/800x1000/140028/ffffff?text=Jerry+Portrait'" class="w-full h-auto opacity-65 hover:opacity-100 rounded-[1.5rem] object-cover mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all duration-700">
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2">
+                        <h3 class="font-display text-4xl md:text-5xl font-bold mb-8 outline-text">THE MAESTRO</h3>
+                        <p class="text-lg font-light leading-relaxed mb-6 border-l-2 border-cyan pl-6">
+                            Hello! I'm Aribidara Jerry, a multifaceted individual with a passion for teaching, music, and technology. 
+                        </p>
+                        <p class="text-textMuted font-light leading-relaxed mb-8">
+                            As an experienced teacher, I've had the privilege of inspiring and educating students in various settings. My love for music led me to become an instrumentalist, and I've had the honor of being certified by renowned institutions such as <strong class="text-white">The Musical Society Of Nigeria (MUSON)</strong> and <strong class="text-white">The Associated Board of Royal Schools of Music (ABRSM)</strong>. <br><br>
+                            In addition to my teaching and musical pursuits, I'm also a web developer (this site was solely developed by me). I'm always looking for ways to combine my skills to create something truly unique and impactful.
+                        </p>
+
+                        <a href="#contact" class="inline-block px-8 py-4 bg-white text-black font-display text-xs font-bold uppercase tracking-widest hover:bg-magenta hover:text-white transition-colors rounded-sm">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row: 3-Card Bento Grid Full Width -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
+                    <div class="bg-[#0a0014] border border-white/5 rounded-2xl p-8 flex flex-col items-center justify-center text-center group hover:shadow-[0_0_15px_rgba(0,243,255,0.15)] hover:border-cyan/50 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <i class="ph ph-piano-keys text-5xl text-cyan mb-4 group-hover:scale-110 transition-transform relative z-10"></i>
+                        <h5 class="font-display font-bold text-sm tracking-widest text-textMain mb-2 relative z-10">INSTRUMENTS</h5>
+                        <p class="font-display text-xs text-cyan tracking-[0.1em] font-bold uppercase relative z-10">Piano, Violin, Saxophone</p>
+                    </div>
+                    
+                    <div class="bg-[#0a0014] border border-white/5 rounded-2xl p-8 flex flex-col items-center justify-center text-center group hover:shadow-[0_0_15px_rgba(255,0,85,0.15)] hover:border-magenta/50 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <i class="ph ph-graduation-cap text-5xl text-magenta mb-4 group-hover:scale-110 transition-transform relative z-10"></i>
+                        <h5 class="font-display font-bold text-sm tracking-widest text-textMain mb-2 relative z-10">EDUCATION</h5>
+                        <p class="font-display text-xs text-magenta tracking-[0.1em] font-bold uppercase relative z-10">UNILAG, MUSON & ABRSM</p>
+                    </div>
+                    
+                    <div class="bg-[#0a0014] border border-white/5 rounded-2xl p-8 flex flex-col items-center justify-center text-center group hover:shadow-[0_0_15px_rgba(0,243,255,0.15)] hover:border-cyan/50 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <i class="ph ph-code text-5xl text-cyan mb-4 group-hover:scale-110 transition-transform relative z-10"></i>
+                        <h5 class="font-display font-bold text-sm tracking-widest text-textMain mb-2 relative z-10 whitespace-nowrap">DIGITAL CREATOR</h5>
+                        <p class="font-display text-xs text-cyan tracking-[0.1em] font-bold uppercase relative z-10">Web Developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- EXACT Contact & Booking Section from index_6.html -->
+        <section id="contact" class="py-24 px-6 md:px-20 border-t border-white/5 relative">
+            <div class="flex flex-col md:flex-row gap-16">
+                <div class="w-full md:w-1/3">
+                    <h3 class="font-display text-4xl md:text-5xl font-bold mb-4 text-violet">CONNECT</h3>
+                    <p class="text-textMuted font-body mb-8 leading-relaxed">Ready to architect sound? Reach out for bookings, commissions, and educational collaborations.</p>
+                    
+                    <div class="flex flex-wrap items-center gap-6 mt-4">
+                        <!-- Facebook -->
+                        <a href="https://facebook.com/aribidara.jerry" target="_blank" class="relative group flex items-center justify-center">
+                            <i class="ph ph-facebook-logo text-4xl text-cyan hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(0,243,255,0.4)] transition-all duration-300"></i>
+                            <span class="absolute -bottom-14 left-1/2 -translate-x-1/2 bg-cyan/10 text-cyan text-[0.65rem] font-display font-bold tracking-widest px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all pointer-events-none whitespace-nowrap border border-cyan/40 backdrop-blur-md z-10">@aribidara.jerry</span>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/aribidara.jerry/" target="_blank" class="relative group flex items-center justify-center">
+                            <i class="ph ph-instagram-logo text-4xl text-magenta hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(255,0,85,0.4)] transition-all duration-300"></i>
+                            <span class="absolute -bottom-14 left-1/2 -translate-x-1/2 bg-magenta/10 text-magenta text-[0.65rem] font-display font-bold tracking-widest px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all pointer-events-none whitespace-nowrap border border-magenta/40 backdrop-blur-md z-10">@aribidara.jerry</span>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@aribidarajerry" target="_blank" class="relative group flex items-center justify-center">
+                            <i class="ph ph-youtube-logo text-4xl text-gold hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(255,196,0,0.4)] transition-all duration-300"></i>
+                            <span class="absolute -bottom-14 left-1/2 -translate-x-1/2 bg-gold/10 text-gold text-[0.65rem] font-display font-bold tracking-widest px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all pointer-events-none whitespace-nowrap border border-gold/40 backdrop-blur-md z-10">@aribidarajerry</span>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://tiktok.com/@aribidara.jerry" target="_blank" class="relative group flex items-center justify-center">
+                            <i class="ph ph-tiktok-logo text-4xl text-cyan hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(0,243,255,0.4)] transition-all duration-300"></i>
+                            <span class="absolute -bottom-14 left-1/2 -translate-x-1/2 bg-cyan/10 text-cyan text-[0.65rem] font-display font-bold tracking-widest px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all pointer-events-none whitespace-nowrap border border-cyan/40 backdrop-blur-md z-10">@aribidara.jerry</span>
+                        </a>
+                        <!-- X (Twitter) -->
+                        <a href="https://x.com/aribidarajerry" target="_blank" class="relative group flex items-center justify-center">
+                            <i class="ph ph-x-logo text-4xl text-magenta hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(255,0,85,0.4)] transition-all duration-300"></i>
+                            <span class="absolute -bottom-14 left-1/2 -translate-x-1/2 bg-magenta/10 text-magenta text-[0.65rem] font-display font-bold tracking-widest px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all pointer-events-none whitespace-nowrap border border-magenta/40 backdrop-blur-md z-10">@aribidarajerry</span>
+                        </a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/aribidarajerry" target="_blank" class="relative group flex items-center justify-center">
+                            <i class="ph ph-github-logo text-4xl text-violet hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(107,33,168,0.4)] transition-all duration-300"></i>
+                            <span class="absolute -bottom-14 left-1/2 -translate-x-1/2 bg-violet/10 text-violet text-[0.65rem] font-display font-bold tracking-widest px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all pointer-events-none whitespace-nowrap border border-violet/40 backdrop-blur-md z-10">@aribidarajerry</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-2/3">
+                    <form class="glass-panel p-8 md:p-12 rounded-[2rem] flex flex-col gap-8" onsubmit="event.preventDefault();">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="flex flex-col gap-2">
+                                <label class="font-display text-xs uppercase tracking-widest text-cyan">Name</label>
+                                <input type="text" class="bg-transparent border-b border-white/20 pb-2 text-textMain focus:outline-none focus:border-cyan transition-colors font-body text-sm" placeholder="Your Name" required>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="font-display text-xs uppercase tracking-widest text-magenta">Email</label>
+                                <input type="email" class="bg-transparent border-b border-white/20 pb-2 text-textMain focus:outline-none focus:border-magenta transition-colors font-body text-sm" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="font-display text-xs uppercase tracking-widest text-gold">Event / Enquiry Type</label>
+                            <select class="bg-glassBg text-textMain border-b border-white/20 pb-2 pt-2 focus:outline-none focus:border-gold transition-colors font-body text-sm outline-none">
+                                <option class="bg-bgMain">Wedding Performance</option>
+                                <option class="bg-bgMain">Live Concert Booking</option>
+                                <option class="bg-bgMain">Studio Session</option>
+                                <!-- <option class="bg-bgMain">Music Education (MASM)</option> -->
+                                <option class="bg-bgMain">Other Commission</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="font-display text-xs uppercase tracking-widest text-violet">Message</label>
+                            <textarea rows="4" class="bg-transparent border-b border-white/20 pb-2 text-textMain focus:outline-none focus:border-violet transition-colors font-body text-sm resize-none" placeholder="Tell me about your project or event..." required></textarea>
+                        </div>
+                        <button type="submit" class="mt-4 px-8 py-4 bg-gradient-to-r from-cyan via-magenta to-gold text-white font-display text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity rounded-sm self-start">
+                            Send Transmission
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="h-32"></div> <!-- Padding for player -->
+    </main>
+
+    <!-- Cinematic Multi-Track Audio Player (With Loop Button) -->
+    <div id="global-player" class="fixed bottom-4 left-4 right-4 md:left-20 md:right-20 glass-panel rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between z-[100] shadow-[0_0_50px_rgba(0,0,0,0.5)] border-t border-white/10">
+        
+        <!-- Track Info -->
+        <div class="flex items-center gap-4 w-full md:w-1/3 mb-4 md:mb-0">
+            <div id="player-icon-container" class="w-12 h-12 rounded-full border-2 border-cyan flex items-center justify-center transition-all duration-500">
+                <i id="player-spin-icon" class="ph ph-vinyl-record text-cyan text-2xl transition-transform"></i>
+            </div>
+            <div class="w-full overflow-hidden">
+                <h4 id="player-title" class="font-display text-textMain text-sm font-bold truncate">AWAITING SELECTION</h4>
+                <p id="player-artist" class="text-xs text-magenta tracking-widest uppercase truncate">Select a track above</p>
+            </div>
         </div>
-    </section>
-
-    <section id="music">
-        <h2>My Music</h2>
-        <p class="content">
-            Discover my musical creations, featuring a collection of videos and original compositions. Explore the intersection of sound and vision, and experience the depth of my artistic expression.
-        </p>
-        <!--
-            Waltz in E minor - https://www.sheetmusicdirect.com/en-US/se/ID_No/1678453/Product.aspx
-
-            We'll never forget you - https://www.sheetmusicdirect.com/en-US/se/ID_No/1383569/Product.aspx
-
-            Invention No 1 - https://www.sheetmusicdirect.com/en-US/se/ID_No/1521403/Product.aspx
-
-            The moment - https://www.sheetmusicdirect.com/en-US/se/ID_No/1521403/Product.aspx
-
-            Gavotte in G minor - https://www.sheetmusicdirect.com/en-US/se/ID_No/1591225/Product.aspx
-
-            Waltz in C sharp minor - https://www.sheetmusicdirect.com/en-US/se/ID_No/1591225/Product.aspx
-
-            Waltz in F minor - https://www.sheetmusicdirect.com/en-US/se/ID_No/1673648/Product.aspx
-
-            Waltz in E minor - https://www.sheetmusicdirect.com/en-US/se/ID_No/1678453/Product.aspx
-            -->
-        <div class="row">
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/ancient-words-organ.jpg" alt="Amazing grace Organ Arrangement
-                    ">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://musescore.com/user/53239608/scores/35415929">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtube.com/shorts/dw80ak7ogQU">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/ancient-words-organ-arrangement">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/ancient-words-organ-melody.jpg" alt="Amazing grace Organ Arrangement Melody Guide">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://musescore.com/user/53239608/scores/35415986">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtube.com/shorts/ZxokcG1wxFA">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/ancient-words-organ-arrangement-melody-guide">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-sm-6 music">
-                    <div class="row">
-                      <img class="col-sm-6" src="img/stay-with-him.jpg" alt="Stay with Him">
-                      <div class="col-sm-6 music-links">
-                        <a href="">
-                          <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="">
-                          <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/stay-with-him">
-                          <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                      </div>
-                    </div>
-                  </div> -->
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/musical-moment-2.jpg" alt="Momenta musicaux No. 2
-                    ">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1761062/Product.aspx">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtu.be/E8FVY8CXq8Q">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/momenta-musicaux-no-2">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-sm-6 music">
-                    <div class="row">
-                      <img class="col-sm-6" src="img/how-great-is-our-God.jpg" alt="How great is our God">
-                      <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1674853/Product.aspx">
-                          <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="">
-                          <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="">
-                          <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                      </div>
-                    </div>
-                  </div> -->
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/musical-moment-1.jpg" alt="Momenta musicaux No. 1">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1673645/Product.aspx">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtu.be/YBN1T56FHbE">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/momenta-musicaux-no-1">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-sm-6 music">
-                    <div class="row">
-                      <img class="col-sm-6" src="img/gavotte.jpg" alt="Gavotte">
-                      <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1591225/Product.aspx">
-                          <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="">
-                          <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="">
-                          <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                      </div>
-                    </div>
-                  </div> -->
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/moment.jpg" alt="The moment">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521416/Product.aspx">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtu.be/FUJeC74TGIc">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/the-moment">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-sm-6 music">
-                    <div class="row">
-                      <img class="col-sm-6" src="img/trio.jpg" alt="Trio for strings">
-                      <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521415/Product.aspx">
-                          <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="">
-                          <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="">
-                          <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                      </div>
-                    </div>
-                  </div> -->
-            <!-- <div class="col-sm-6 music">
-                    <div class="row">
-                      <img class="col-sm-6" src="img/waltz-in-c-sharp.jpg" alt="Waltz in C#">
-                      <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1591245/Product.aspx">
-                          <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="">
-                          <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="">
-                          <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                      </div>
-                    </div>
-                  </div> -->
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/waltz-in-e-minor.jpg" alt="Waltz in E minor">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1678453/Product.aspx">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtu.be/2oUMq5lJ9jw">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/waltz-in-e-minor">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/waltz-in-f-minor.jpg" alt="Waltz in F minor">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1673648/Product.aspx">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtu.be/LgLarEpQke0">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/waltz-in-f-minor">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 music">
-                <div class="row">
-                    <img class="col-sm-6" src="img/invention.jpg" alt="Invention No. 1">
-                    <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1521403/Product.aspx">
-                            <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="https://youtu.be/jlROzN9nws8">
-                            <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="https://audio.com/aribidara-jerry/audio/invention-no-1">
-                            <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-sm-6 music">
-                    <div class="row">
-                      <img class="col-sm-6" src="img/score.jpg" alt="">
-                      <div class="col-sm-6 music-links">
-                        <a href="https://www.sheetmusicdirect.com/en-US/se/ID_No/1383569/Product.aspx">
-                          <i class="fa-solid fa-external-link"></i> Pdf Score
-                        </a>
-                        <a href="">
-                          <i class="fa-brands fa-youtube"></i> YouTube
-                        </a>
-                        <a href="">
-                          <i class="fa-solid fa-music"></i> Audio
-                        </a>
-                      </div>
-                    </div>
-                  </div> -->
+        
+        <!-- Playback Controls -->
+        <div class="w-full md:w-1/3 flex items-center justify-center gap-6">
+            <button onclick="toggleLoop()" id="loop-btn" class="text-textMuted hover:text-cyan transition-colors focus:outline-none" title="Toggle Loop">
+                <i class="ph ph-repeat text-2xl"></i>
+            </button>
+            <button onclick="prevTrack()" class="text-textMuted hover:text-cyan transition-colors focus:outline-none"><i class="ph ph-skip-back-circle text-3xl"></i></button>
+            <button onclick="togglePlay()" class="text-gold hover:text-magenta transition-colors hover:scale-110 transform focus:outline-none">
+                <i id="play-pause-btn" class="ph ph-play-circle text-5xl drop-shadow-[0_0_10px_rgba(255,196,0,0.5)]"></i>
+            </button>
+            <button onclick="nextTrack()" class="text-textMuted hover:text-cyan transition-colors focus:outline-none"><i class="ph ph-skip-forward-circle text-3xl"></i></button>
         </div>
-        <p class="content">
-            You will find more of my documented composition on <a href="https://www.sheetmusicdirect.com/en-US/Search.aspx?query=Aribidara%2BJerry">SHEETMUSICDIRECT</a>. Please note that I have previously published works under the name A.T.M.F. Jerry. Moving forward, all works will be attributed to <b>Aribidara Jerry</b> for consistency. Both names refer to the same creator.
-        </p>
-    </section>
 
-    <!-- <section id="teaching">
-        <h2>Teaching</h2>
-        <p class="content">Book a lesson, class details, teaching philosophy.</p>
-      </section> -->
-
-    <section id="videos">
-        <h2>Videos</h2>
-        <p class="content">
-            Welcome to my video showcase! Here, you'll find a selection of my performances, highlighting my skills as an instrumentalist. From classical masterpieces to contemporary works, I'm excited to share my musical interpretations with you. Explore the videos below to experience my passion for music.
-        </p>
-        <div class="row">
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/2C3SO_hgqUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Nun komm' der Heiden Heiland by Bach --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/uj6kzMdIFXk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Give Thanks (Don Moen) | Piano Cover | New Month Gratitude --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/KDTnYfh202o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Climax of "The Heavens are telling" by Haydn --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/wEetOCVJ_N0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Bach concerto in A minor --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/UiRJ4Z6l5bk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- The heavens are telling 1 --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/vFKYl2WNswM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Dies Irae - Mozart's Requiem in D minor K 626 --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/2XQ-uHfG0HA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Bass and lead guitarist --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/gwHAlOL_Lm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Do you know my Jesus --></iframe>
-            <iframe class="col-sm-6" src="https://www.youtube.com/embed/kw5rP2KTz5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen><!-- Chopin fantasie impromptu --></iframe>
-        </div>
-        <p class="content">
-            You can visit my YouTube channel for additional performances and music content by clicking <a href="https://www.youtube.com/@aribidarajerry">Aribidara Jerry</a>.
-        </p>
-    </section>
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <p class="content"></p>
-        <div class="infinite-slider-wrapper">
-            <div class="infinite-slider-track">
-                <img src="img/jerry13.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry12.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry11.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry10.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry9.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry8.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry7.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry6.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry5.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry4.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry3.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry2.jpg" alt="Aribidara Jerry" class="slider-img">
-                <img src="img/jerry1.jpg" alt="Aribidara Jerry" class="slider-img">
+        <!-- Progress Bar & Timestamps -->
+        <div class="w-full md:w-1/3 flex flex-col justify-center gap-2 mt-4 md:mt-0">
+            <div class="flex justify-between text-[10px] font-display text-textMuted font-bold tracking-widest">
+                <span id="time-current">0:00</span>
+                <span id="time-total">0:00</span>
+            </div>
+            <div id="progress-container" class="w-full h-2 bg-black/50 rounded-full overflow-hidden relative border border-white/10 cursor-pointer" onclick="setProgress(event)">
+                <div id="progress-bar" class="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan to-magenta w-[0%] pointer-events-none transition-all duration-100"></div>
             </div>
         </div>
-    </section>
+    </div>
 
+    <!-- Logic -->
+    <script>
+        // --- Light / Dark Theme Toggle ---
+        const toggleTheme = () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const themeIcons = document.querySelectorAll('.theme-icon');
+            
+            if(currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcons.forEach(icon => icon.classList.replace('ph-sun', 'ph-moon'));
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcons.forEach(icon => icon.classList.replace('ph-moon', 'ph-sun'));
+            }
+        };
 
+        document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', toggleTheme);
+        });
+	
+	// --- Filterable Gallery Logic (Isotope Masonry) ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const grid = document.querySelector('#gallery-grid');
+        let iso;
 
-    <!-- <section id="contact">
-        <h2>Contact Me</h2>
-        <form>
-          <input type="text" placeholder="Name">
-          <input type="email" placeholder="Email">
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-        </form>
-      </section> -->
+        // Initialize Isotope AFTER images have loaded to calculate heights properly
+        imagesLoaded(grid, function() {
+            iso = new Isotope(grid, {
+                itemSelector: '.gallery-item',
+                layoutMode: 'masonry',
+                percentPosition: true,
+                masonry: {
+                    columnWidth: '.gallery-item'
+                }
+            });
+        });
 
-    <a class="arrow" href="#">
-        <i class="fa-solid fa-arrow-up"></i>
-    </a>
-</div>
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset active button states
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-cyan', 'text-bgMain', 'bg-magenta', 'bg-gold', 'bg-violet', 'text-white');
+                });
+                
+                // Apply active style based on color theme of button
+                if(btn.dataset.filter === 'all') btn.classList.add('bg-cyan', 'text-bgMain');
+                if(btn.dataset.filter === 'performances') btn.classList.add('bg-magenta', 'text-bgMain');
+                if(btn.dataset.filter === 'teaching') btn.classList.add('bg-gold', 'text-bgMain');
+                if(btn.dataset.filter === 'portraits') btn.classList.add('bg-violet', 'text-white');
+                if(btn.dataset.filter === 'moments') btn.classList.add('bg-cyan', 'text-bgMain');
 
-<footer>
-    <p>
-        &copy; 2026 Aribidara Jerry
-    </p>
-</footer>
+                // Instruct Isotope to filter and animate the grid
+                const filter = btn.dataset.filter;
+                const filterValue = filter === 'all' ? '*' : `[data-category="${filter}"]`;
+                
+                if (iso) {
+                    iso.arrange({ filter: filterValue });
+                }
+            });
+        });
 
+        // --- Extreme Interactive Canvas (Multi-color Staff Lines) ---
+        const canvas = document.getElementById('staff-canvas');
+        const ctx = canvas.getContext('2d');
+        let time = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function drawStaffLines() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Get actual CSS variables
+            const style = getComputedStyle(document.body);
+            const colors = [
+                style.getPropertyValue('--c-cyan').trim() || '#00f3ff',
+                style.getPropertyValue('--c-magenta').trim() || '#ff0055',
+                style.getPropertyValue('--c-gold').trim() || '#ffc400',
+                style.getPropertyValue('--c-violet').trim() || '#6b21a8',
+                style.getPropertyValue('--c-cyan').trim() || '#00f3ff'
+            ];
+            
+            ctx.lineWidth = 2;
+            const startY = canvas.height * 0.3;
+            const spacing = Math.max(25, canvas.height * 0.05);
+            
+            for(let i = 0; i < 5; i++) {
+                ctx.beginPath();
+                ctx.strokeStyle = colors[i];
+                
+                for(let x = 0; x < canvas.width; x += 20) {
+                    // Complex extreme wave math
+                    const yOffset = Math.sin((x * 0.003) + time) * 50 
+                                  + Math.cos((x * 0.001) - time * 1.5) * 30
+                                  + Math.sin((x * 0.01) + i) * 10;
+                    
+                    const y = startY + (i * spacing) + yOffset + (Math.sin(time) * 50); // Whole staff drifts
+                    
+                    if (x === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+            }
+            
+            time += 0.015;
+            requestAnimationFrame(drawStaffLines);
+        }
+        drawStaffLines();
+
+        // --- Global Floating Diverse Musical Notes ---
+        const floatingContainer = document.getElementById('floating-container');
+        // Extensive list of musical symbols (Clefs, notes, accidentals, rests)
+        const noteSymbols = [
+            { symbol: '𝅝', freq: 130.81, color: 'var(--c-violet)' }, // Whole Note
+            { symbol: '𝅗𝅥', freq: 146.83, color: 'var(--c-cyan)' },   // Half
+            { symbol: '𝅘𝅥', freq: 164.81, color: 'var(--c-magenta)' },// Quarter
+            { symbol: '𝅘𝅥𝅮', freq: 174.61, color: 'var(--c-gold)' },   // Eighth
+            { symbol: '♫', freq: 196.00, color: 'var(--c-cyan)' },   // Beamed
+            { symbol: '♬', freq: 220.00, color: 'var(--c-magenta)' },// Beamed 16th
+            { symbol: '𝄞', freq: 261.63, color: 'var(--c-gold)' },   // Treble Clef
+            { symbol: '𝄢', freq: 65.41,  color: 'var(--c-violet)' }, // Bass Clef
+            { symbol: '♯', freq: 311.13, color: 'var(--c-cyan)' },   // Sharp
+            { symbol: '♭', freq: 277.18, color: 'var(--c-magenta)' } // Flat
+        ];
+
+        let floatingObjects = [];
+        
+        // Mouse tracking for repel effect
+        let mouseX = -1000;
+        let mouseY = -1000;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function spawnElements() {
+            // Spawn 25 extreme floating elements
+            for (let i = 0; i < 25; i++) {
+                const data = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
+                const el = document.createElement('div');
+                
+                // Randomize size heavily for depth
+                const size = Math.random() * 4 + 1; // 1rem to 5rem
+                el.className = 'floating-element';
+                el.style.fontSize = `${size}rem`;
+                el.style.color = data.color;
+                el.innerHTML = data.symbol;
+                
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                
+                const obj = {
+                    el: el,
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 1.5, // Faster movement
+                    vy: (Math.random() - 0.5) * 1.5,
+                    baseVx: (Math.random() - 0.5) * 1.5, // Store base speeds to return to
+                    baseVy: (Math.random() - 0.5) * 1.5,
+                    rot: Math.random() * 360,
+                    vRot: (Math.random() - 0.5) * 2,
+                    data: data
+                };
+                
+                el.addEventListener('click', (e) => {
+                    createRipple(e.clientX, e.clientY);
+                    
+                    // Violent explosion effect on the note itself
+                    el.style.transform = `translate(${obj.x}px, ${obj.y}px) scale(3) rotate(${obj.rot + 90}deg)`;
+                    el.style.opacity = '0';
+                    setTimeout(() => {
+                        obj.x = Math.random() * window.innerWidth;
+                        obj.y = -100;
+                        el.style.opacity = '1';
+                    }, 500);
+                });
+                
+                floatingContainer.appendChild(el);
+                floatingObjects.push(obj);
+            }
+            requestAnimationFrame(animateElements);
+        }
+
+        function animateElements() {
+            floatingObjects.forEach(obj => {
+                
+                // Interactive Cursor Dodge/Repel Logic
+                const dx = obj.x - mouseX;
+                const dy = obj.y - mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist < 150) {
+                    const force = (150 - dist) / 150;
+                    obj.vx += (dx / dist) * force * 1.2;
+                    obj.vy += (dy / dist) * force * 1.2;
+                    obj.el.style.filter = `drop-shadow(0 0 15px ${obj.data.color}) brightness(1.5)`;
+                } else {
+                    // Smooth return to base velocities
+                    obj.vx += (obj.baseVx - obj.vx) * 0.03;
+                    obj.vy += (obj.baseVy - obj.vy) * 0.03;
+                    obj.el.style.filter = '';
+                }
+
+                obj.x += obj.vx;
+                obj.y += obj.vy;
+                obj.rot += obj.vRot;
+                
+                if (obj.x < -100) obj.x = window.innerWidth + 100;
+                if (obj.x > window.innerWidth + 100) obj.x = -100;
+                if (obj.y < -100) obj.y = window.innerHeight + 100;
+                if (obj.y > window.innerHeight + 100) obj.y = -100;
+                
+                // Avoid overriding the click explosion transition
+                if (obj.el.style.opacity !== '0') {
+                    obj.el.style.transform = `translate(${obj.x}px, ${obj.y}px) rotate(${obj.rot}deg)`;
+                }
+            });
+            requestAnimationFrame(animateElements);
+        }
+
+        function createRipple(x, y) {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 800);
+        }
+
+        // Initialize elements
+        window.addEventListener('DOMContentLoaded', spawnElements);
+
+        // --- Audio Player Logic (With Loop Support) ---
+        const audio = new Audio();
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        let isLooping = false;
+
+        const playlist = [
+            { 
+                title: "Amazing grace Organ", 
+                artist: "Organ Arrangement", 
+                src: "audio/ancient-words-organ-arrangement.mp3",
+                color: "magenta"
+            },
+            { 
+                title: "Amazing grace Melody", 
+                artist: "Organ Arrangement Melody Guide", 
+                src: "audio/ancient-words-organ-arrangement-melody-guide.mp3",
+                color: "cyan"
+            },
+            { 
+                title: "Momenta musicaux No. 2", 
+                artist: "Original Composition", 
+                src: "audio/momenta-musicaux-no-2.mp3",
+                color: "gold"
+            },
+            { 
+                title: "Momenta musicaux No. 1", 
+                artist: "Original Composition", 
+                src: "audio/momenta-musicaux-no-1.mp3",
+                color: "violet"
+            },
+            { 
+                title: "The Moment", 
+                artist: "Original Composition", 
+                src: "audio/the-moment.mp3",
+                color: "magenta"
+            },
+            { 
+                title: "Waltz in E minor", 
+                artist: "Original Composition", 
+                src: "audio/waltz-in-e-minor.mp3",
+                color: "cyan"
+            },
+            { 
+                title: "Waltz in F minor", 
+                artist: "Original Composition", 
+                src: "audio/waltz-in-f-minor.mp3",
+                color: "gold"
+            },
+            { 
+                title: "Invention No. 1", 
+                artist: "Original Composition", 
+                src: "audio/invention-no-1.mp3",
+                color: "violet"
+            }
+        ];
+
+        const playBtnIcon = document.getElementById('play-pause-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+        const timeCurrent = document.getElementById('time-current');
+        const timeTotal = document.getElementById('time-total');
+        const playerTitle = document.getElementById('player-title');
+        const playerArtist = document.getElementById('player-artist');
+        const spinIcon = document.getElementById('player-spin-icon');
+        const iconContainer = document.getElementById('player-icon-container');
+        const loopBtn = document.getElementById('loop-btn');
+
+        function toggleLoop() {
+            isLooping = !isLooping;
+            audio.loop = isLooping;
+            if (isLooping) {
+                loopBtn.classList.replace('text-textMuted', 'text-cyan');
+                loopBtn.innerHTML = '<i class="ph ph-repeat-once text-2xl drop-shadow-[0_0_8px_rgba(0,243,255,0.6)]"></i>';
+            } else {
+                loopBtn.classList.replace('text-cyan', 'text-textMuted');
+                loopBtn.innerHTML = '<i class="ph ph-repeat text-2xl"></i>';
+            }
+        }
+
+        function loadTrack(index) {
+            const track = playlist[index];
+            if(!track) return;
+            audio.src = track.src;
+            playerTitle.textContent = track.title;
+            playerArtist.textContent = track.artist;
+            
+            iconContainer.className = `w-12 h-12 rounded-full border-2 border-${track.color} flex items-center justify-center transition-all duration-500`;
+            spinIcon.className = `ph ph-vinyl-record text-${track.color} text-2xl transition-transform`;
+            progressBar.className = `absolute top-0 left-0 h-full bg-gradient-to-r from-${track.color} to-gold w-[0%] pointer-events-none transition-all duration-100`;
+        }
+
+        function playTrack(index) {
+            currentTrackIndex = index;
+            loadTrack(currentTrackIndex);
+            
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    updatePlayUI();
+                }).catch(error => {
+                    isPlaying = false;
+                    updatePlayUI();
+                });
+            }
+        }
+
+        function togglePlay() {
+            if (!audio.getAttribute('src')) loadTrack(currentTrackIndex);
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                updatePlayUI();
+            } else {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    updatePlayUI();
+                }).catch(() => {
+                    isPlaying = false;
+                    updatePlayUI();
+                });
+            }
+        }
+
+        function nextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+            playTrack(currentTrackIndex);
+        }
+
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+            playTrack(currentTrackIndex);
+        }
+
+        function updatePlayUI() {
+            if (isPlaying) {
+                playBtnIcon.classList.replace('ph-play-circle', 'ph-pause-circle');
+                spinIcon.classList.add('animate-[spin_4s_linear_infinite]');
+            } else {
+                playBtnIcon.classList.replace('ph-pause-circle', 'ph-play-circle');
+                spinIcon.classList.remove('animate-[spin_4s_linear_infinite]');
+            }
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+                timeCurrent.textContent = formatTime(audio.currentTime);
+            }
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            timeTotal.textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('ended', () => {
+            if (!isLooping) {
+                nextTrack();
+            }
+        });
+
+        function setProgress(e) {
+            if(!audio.src) return;
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        }
+
+        function formatTime(seconds) {
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }
+    </script>
 </body>
 </html>
