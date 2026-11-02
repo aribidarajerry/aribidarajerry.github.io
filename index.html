@@ -63,6 +63,11 @@
     </script>
 
     <style>
+	/* Hide scrollbars for Chrome, Safari, and Opera */
+	::-webkit-scrollbar {
+	    display: none;
+	}
+
         /* Extreme 4-Color Theme Variables */
         :root[data-theme="dark"] {
             --bg-main: #0a0014;
@@ -91,6 +96,8 @@
             color: var(--text-main);
             overflow-x: hidden;
             transition: background-color 0.5s ease, color 0.5s ease;
+	    -ms-overflow-style: none;  /* IE and Edge */
+    	    scrollbar-width: none;  /* Firefox */
         }
 
         /* Glassmorphism & Extreme Borders */
@@ -907,7 +914,7 @@
         let time = 0;
 
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
+            canvas.width = document.documentElement.clientWidth;
             canvas.height = window.innerHeight;
         }
         window.addEventListener('resize', resizeCanvas);
@@ -915,17 +922,7 @@
 
         function drawStaffLines() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Get actual CSS variables
-            const style = getComputedStyle(document.body);
-            const colors = [
-                style.getPropertyValue('--c-cyan').trim() || '#00f3ff',
-                style.getPropertyValue('--c-magenta').trim() || '#ff0055',
-                style.getPropertyValue('--c-gold').trim() || '#ffc400',
-                style.getPropertyValue('--c-violet').trim() || '#6b21a8',
-                style.getPropertyValue('--c-cyan').trim() || '#00f3ff'
-            ];
-            
+            const colors = ['#00f3ff', '#ff0055', '#ffc400', '#6b21a8', '#00f3ff'];
             ctx.lineWidth = 2;
             const startY = canvas.height * 0.3;
             const spacing = Math.max(25, canvas.height * 0.05);
@@ -933,25 +930,18 @@
             for(let i = 0; i < 5; i++) {
                 ctx.beginPath();
                 ctx.strokeStyle = colors[i];
-                
-                for(let x = 0; x < canvas.width; x += 20) {
-                    // Complex extreme wave math
-                    const yOffset = Math.sin((x * 0.003) + time) * 50 
-                                  + Math.cos((x * 0.001) - time * 1.5) * 30
-                                  + Math.sin((x * 0.01) + i) * 10;
-                    
-                    const y = startY + (i * spacing) + yOffset + (Math.sin(time) * 50); // Whole staff drifts
-                    
-                    if (x === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
+                for(let x = 0; x <= canvas.width + 20; x += 20) {
+                    const yOffset = Math.sin((x * 0.003) + time) * 50 + Math.cos((x * 0.001) - time * 1.5) * 30 + Math.sin((x * 0.01) + i) * 10;
+                    const y = startY + (i * spacing) + yOffset + (Math.sin(time) * 50);
+                    if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
                 }
                 ctx.stroke();
             }
-            
             time += 0.015;
             requestAnimationFrame(drawStaffLines);
         }
         drawStaffLines();
+
 
         // --- Global Floating Diverse Musical Notes ---
         const floatingContainer = document.getElementById('floating-container');
